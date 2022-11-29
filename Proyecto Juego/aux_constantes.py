@@ -1,7 +1,8 @@
 ANCHO_VENTANA = 1500
 ALTO_VENTANA = 720
 FPS = 30
-PATH_RECURSOS = r"recursos"
+PATH_RECURSOS = "Proyecto Juego/recursos"
+PATH_JSON = "Proyecto Juego/{0}.json"
 DERECHA = "right"
 IZQUIERDA = "left"
 COLOR_TEXTO_MENU = 	(240,230,140)

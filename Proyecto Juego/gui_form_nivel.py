@@ -16,7 +16,7 @@ from jugador import Jugador
 class FormNivel(Form):
     def __init__(self, name, master_surface, x=0, y=0, w=ANCHO_VENTANA, h=ALTO_VENTANA, color_background=None, imagen_background=None, color_border=None, active=False):
         self.name = name
-        data_nivel = importar_lista("{0}.json".format(name), name)[0]
+        data_nivel = importar_lista(PATH_JSON.format(name), name)[0]
         imagen_background = PATH_RECURSOS + data_nivel["background"]
         self.tiempo = data_nivel["tiempo"]
         self.health_score = data_nivel["score_vida"]
