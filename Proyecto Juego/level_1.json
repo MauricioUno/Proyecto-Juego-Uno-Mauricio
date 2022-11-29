@@ -1,0 +1,112 @@
+{
+    "level_1":[
+        {
+            "background": "/background/Forest1.png",
+            "pos_player": [50,500],
+            "pos_portal": [1230,140],
+            "tiempo": 40,
+            "score_tiempo": 5,
+            "score_vida": 5,
+            "plataformas":
+            {
+                "terreno":
+                [
+                    {
+                        "tipo": "Mid Grass",
+                        "pos": [-490,660],
+                        "dim": [100,100],
+                        "cant": [11,1]
+                    },
+
+                    {
+                        "tipo": "Left Column",
+                        "pos": [600,460],
+                        "dim": [100,300],
+                        "cant": [1,1]
+                    },
+    
+                    {
+                        "tipo": "Mid Column",
+                        "pos": [700,460],
+                        "dim": [100,300],
+                        "cant": [10,1]
+                    },
+
+                    {
+                        "tipo": "Platform",
+                        "pos": [300,150],
+                        "dim": [100,25],
+                        "cant": [1,1]
+                    },
+    
+                    {
+                        "tipo": "Platform",
+                        "pos": [750,270],
+                        "dim": [100,25],
+                        "cant": [1,1]
+                    },
+
+                    {
+                        "tipo": "Platform",
+                        "pos": [1190,270],
+                        "dim": [200,50],
+                        "cant": [1,1]
+                    }
+                ],
+                "movVertical":
+                [
+                    
+                    {
+                        "tipo": "Platform",
+                        "pos": [150,250],
+                        "dim": [100,25],
+                        "speed": 5,
+                        "route": 300
+                    }        
+                ]
+            },
+            "enemigos":
+            {
+                "ix":[
+                    {
+                        "coordenadas": [1000,370],
+                        "width_ruta": 400
+                    }
+                ],
+
+                "groodle":[
+                    {
+                        "coordenadas": [510,570],
+                        "direccion": "left"
+                    }
+                ],
+
+                "batterfly":{
+                    "cant": 2
+                }
+            },
+            "items":{
+                "score":[
+                    {
+                        "item":"strawberry",
+                        "dimension": [30,30],
+                        "coordenadas": [335, 120]
+                    },
+
+                    {
+                        "item":"strawberry",
+                        "dimension": [30,30],
+                        "coordenadas": [630, 430]
+                    },
+
+                    {
+                        "item":"strawberry",
+                        "dimension": [30,30],
+                        "coordenadas": [1340, 240]
+                    }
+
+                ]
+            }
+        }
+    ]
+}

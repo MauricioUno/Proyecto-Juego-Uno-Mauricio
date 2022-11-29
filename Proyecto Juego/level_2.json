@@ -1,0 +1,120 @@
+{
+    "level_2":[
+        {
+            "background": "/background/snow3.png",
+            "pos_player": [100,500],
+            "pos_portal": [340,140],
+            "tiempo": 60,
+            "score_tiempo": 10,
+            "score_vida": 2,
+            "plataformas":
+            {
+                "terreno":
+                [
+
+                    {
+                        "tipo": "17",
+                        "pos": [-50,520],
+                        "dim": [150,37],
+                        "cant": [1,1]
+                    },
+
+                    {
+                        "tipo": "17",
+                        "pos": [-50,690],
+                        "dim": [400,100],
+                        "cant": [1,1]
+                    },
+
+                    {
+                        "tipo": "icebox",
+                        "pos": [1450,370],
+                        "dim": [75,75],
+                        "cant": [1,1]
+                    },
+
+                    {
+                        "tipo": "icebox",
+                        "pos": [1450,270],
+                        "dim": [75,75],
+                        "cant": [1,1]
+                    },
+
+                    {
+                        "tipo": "17",
+                        "pos": [300,270],
+                        "dim": [200,50],
+                        "cant": [1,1]
+                    }
+                ],
+                "movHorizontal":
+                [
+                    {
+                        "tipo": "17",
+                        "pos": [1350,570],
+                        "dim": [100,25],
+                        "speed": -10,
+                        "route": 300
+                    },
+
+                    {
+                        "tipo": "icebox",
+                        "pos": [1410,445],
+                        "dim": [100,25],
+                        "speed": 5,
+                        "route": 50
+                    },
+
+                    {
+                        "tipo": "icebox",
+                        "pos": [1420,345],
+                        "dim": [100,25],
+                        "speed": 4,
+                        "route": 24
+                    },
+
+                    {
+                        "tipo": "17",
+                        "pos": [700,570],
+                        "dim": [50,12],
+                        "speed": -10,
+                        "route": 300
+                    }
+                ],
+                "movCircular":[
+                    {
+                        "tipo": "icebox",
+                        "pos": [1200,200],
+                        "dim": [100,25],
+                        "move":[600,200],
+                        "speed": 4
+                    }
+                ]
+            },
+            "enemigos":
+            {
+            },
+            "items":{
+                "score":[
+                    {
+                        "item":"strawberry",
+                        "dimension": [30,30],
+                        "coordenadas": [10, 490]
+                    },
+
+                    {
+                        "item":"strawberry",
+                        "dimension": [30,30],
+                        "coordenadas": [110, 100]
+                    },
+
+                    {
+                        "item":"strawberry",
+                        "dimension": [30,30],
+                        "coordenadas": [900, 200]
+                    }
+                ]
+            }
+        }
+    ]
+}
