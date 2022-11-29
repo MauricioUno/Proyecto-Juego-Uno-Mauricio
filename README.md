@@ -1,2 +1,10 @@
 # Proyecto-Juego-Uno-Mauricio
-Todo lo necesario para jugar a GLITCH
+Version en desarrollo de GLITCH
+Notas:
+- Cambiar las constantes PATH_RECURSOS y PATH_JSON del archivo aux_constantes.py segun se necesite
+- El nivel 3 no esta disponible
+- El sonido no fue implementado
+- No se guarda el score del jugador
+- El menu que aparece al ganar la partida no esta terminado; no aparece el score total y un boton no tiene funcion
+- Las balas no colisionan con las paredes
+- La influencia que tienen las plataformas sobre el jugador tarda en aplicarse
