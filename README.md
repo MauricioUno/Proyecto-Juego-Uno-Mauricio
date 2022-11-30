@@ -14,7 +14,7 @@ Version en desarrollo de GLITCH
     - No hay sonido
 
 
-* No tan importante (sigue siendo importante):
+* Pendiente:
     - La influencia que tienen las plataformas sobre el jugador tarda en aplicarse
     - Agregar plataformas con nuevos movimientos
     - Terminar manager Proyectiles y Plataformas general
