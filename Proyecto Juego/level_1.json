@@ -4,7 +4,7 @@
             "background": "/background/Forest1.png",
             "pos_player": [50,500],
             "pos_portal": [1230,140],
-            "tiempo": 40,
+            "tiempo": 60,
             "score_tiempo": 5,
             "score_vida": 5,
             "plataformas":

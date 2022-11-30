@@ -14,19 +14,20 @@ from jugador import Jugador
 
 
 class FormNivel(Form):
-    def __init__(self, name, master_surface, x=0, y=0, w=ANCHO_VENTANA, h=ALTO_VENTANA, color_background=None, imagen_background=None, color_border=None, active=False):
-        self.name = name
-        data_nivel = importar_lista(PATH_JSON.format(name), name)[0]
+    def __init__(self, nivel, master_surface,x=0, y=0, w=ANCHO_VENTANA, h=ALTO_VENTANA, color_background=None, imagen_background=None, color_border=None, active=False):
+        self.name = "level_{0}".format(nivel)
+        self.nro_nivel = nivel
+        data_nivel = importar_lista(PATH_JSON.format(self.name), self.name)[0]
         imagen_background = PATH_RECURSOS + data_nivel["background"]
         self.tiempo = data_nivel["tiempo"]
         self.health_score = data_nivel["score_vida"]
         self.tiempo_score = data_nivel["score_tiempo"]
-        super().__init__(name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
-        self.plataformas = ListaPlataformas(data_nivel["plataformas"], master_surface, name)
+        super().__init__(self.name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
+        self.plataformas = ListaPlataformas(data_nivel["plataformas"], master_surface, self.name)
         self.items = ListaItems(data_nivel["items"], master_surface)
         self.enemigos = ListaEnemigos(data_nivel["enemigos"], master_surface)
         self.jugador = Jugador(data_nivel["pos_player"][0], data_nivel["pos_player"][1], master_surface, self)
-        self.portal = Portal(data_nivel["pos_portal"][0], data_nivel["pos_portal"][1], master_surface, name)
+        self.portal = Portal(data_nivel["pos_portal"][0], data_nivel["pos_portal"][1], master_surface, self.name)
 
         self.orb = Widget(master=self, x=10, y = 40, w=25, h=25,image_background=PATH_RECURSOS + r"\items\orb.png")
         self.ammo = Widget(master=self, x=50, y = 40, w=50, h=25,image_background=PATH_RECURSOS + r"\gui\ammo.png",text=" ",font_size=25,font_color=C_BLUE)
@@ -38,7 +39,7 @@ class FormNivel(Form):
         
         
     def resetear(self):
-        self.__init__(name = self.name, master_surface = self.master_surface)
+        self.__init__(nivel = self.nro_nivel, master_surface = self.master_surface)
 
 
     def update(self, lista_eventos, delta_ms, segundo):
@@ -46,6 +47,9 @@ class FormNivel(Form):
         self.health_bar.value = self.jugador.vida
         self.ammo.text = "{0}".format(self.jugador.municion)
         self.score.text = "{0}".format(self.jugador.score)
+        self.time.text = "{0}".format(self.tiempo)
+
+        self.update_widget(lista_eventos)
 
         for event in lista_eventos:
             if event.type == pygame.KEYDOWN:
@@ -54,7 +58,7 @@ class FormNivel(Form):
             
             if event.type == segundo:
                 self.tiempo += -1
-                self.time.text = "{0}".format(self.tiempo)
+                
 
         if self.jugador.lose or self.tiempo < 0:
             self.set_active("lose")
@@ -76,7 +80,6 @@ class FormNivel(Form):
 
         for aux_boton in self.lista_widget:
             aux_boton.draw()
-            aux_boton.update(lista_eventos)
             
             
 

@@ -1,6 +1,6 @@
 # Proyecto-Juego-Uno-Mauricio
 Version en desarrollo de GLITCH
-Notas:
+* Notas:
 - Video: https://drive.google.com/file/d/1YhHOpuzbmBrcDSRAyZ6TOOyOCNIKfCNj/view?usp=share_link
 - Cambiar las constantes PATH_RECURSOS y PATH_JSON del archivo aux_constantes.py segun se necesite
 - El nivel 3 no esta disponible

@@ -40,6 +40,7 @@
                         "cant": [1,1]
                     },
 
+                    
                     {
                         "tipo": "17",
                         "pos": [300,270],
@@ -87,7 +88,7 @@
                         "pos": [1200,200],
                         "dim": [100,25],
                         "move":[600,200],
-                        "speed": 4
+                        "speed": 3
                     }
                 ]
             },
@@ -105,13 +106,13 @@
                     {
                         "item":"strawberry",
                         "dimension": [30,30],
-                        "coordenadas": [110, 100]
+                        "coordenadas": [50, 130]
                     },
 
                     {
                         "item":"strawberry",
                         "dimension": [30,30],
-                        "coordenadas": [900, 200]
+                        "coordenadas": [900, 150]
                     }
                 ]
             }

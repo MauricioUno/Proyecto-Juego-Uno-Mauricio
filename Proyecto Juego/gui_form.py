@@ -45,14 +45,18 @@ class Form():
 
         if self.color_border != None:
             pygame.draw.rect(self.surface, self.color_border, self.surface.get_rect(), 2)
-             
 
-    def draw(self, delta_ms, lista_eventos):
+
+    def update_widget(self, lista_eventos):
+        for aux_boton in self.lista_widget:
+            aux_boton.update(lista_eventos)
+
+
+    def draw(self):
         self.master_surface.blit(self.surface,self.slave_rect)
         self.render()
         for aux_boton in self.lista_widget:
             aux_boton.draw()
-            aux_boton.update(lista_eventos)
             
         
         
