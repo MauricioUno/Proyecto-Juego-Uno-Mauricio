@@ -7,6 +7,6 @@ Version en desarrollo de GLITCH
 - El sonido no fue implementado
 - No se guarda el score del jugador
 - El menu seleccion de niveles no esta terminado
-- El menu que aparece al ganar la partida no esta terminado; no aparece el score total y un boton no tiene funcion
+- El menu que aparece al ganar la partida no esta terminado; no aparece el score total y un boton no tiene funcion HECHO
 - Las balas no colisionan con las paredes
 - La influencia que tienen las plataformas sobre el jugador tarda en aplicarse
