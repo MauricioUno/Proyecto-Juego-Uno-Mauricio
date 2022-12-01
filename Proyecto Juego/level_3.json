@@ -34,6 +34,14 @@
                         "dim": [50,50],
                         "distancia": [50,200],
                         "cant": [6,2]
+                    },
+
+                    {
+                        "tipo": "stoneblock",
+                        "pos": [800,605],
+                        "dim": [75,75],
+                        "distancia": [0,0],
+                        "cant": [1,1]
                     }
                 ],
                 "movHorizontal":
@@ -87,16 +95,15 @@
                 ]
             },
             "trampas":
-            { 
-                "estatica":
-                [
+            {
+                "estatica":[
                     {
-                        "tipo": "/tile/level_3/Bush (2).png",
-                        "pos": [800,620],
-                        "dim": [75,60]
+                        "tipo":"/tile/level_3/bush (2).png",
+                        "pos": [1120,205],
+                        "dim": [60,45]
                     }
                 ],
-
+            
                 "movVertical":[
                     {
                         "tipo": "/tile/level_3/Crystal Trap.png",

@@ -9,7 +9,7 @@ Version en desarrollo de GLITCH
     - No se guarda el score del jugador
     - El form_win no esta terminado; no aparece el score total y el boton next hace nada (HECHO)
     - No hay trampas (HECHO)
-    - Las balas no colisionan con las paredes
+    - Las balas no colisionan con las paredes (HECHO)
     - Agregar gravedad y colision a los enemigos que la requieran (HECHO)
     - No hay sonido
 

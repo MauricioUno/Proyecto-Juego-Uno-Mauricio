@@ -94,5 +94,5 @@ class SpiritGroodle(StillShooter):
                 self.actualizar_posicion()
                 self.animaciones()
                 self.updatear_frames()
-                self.proyectiles.actualizar_disparos([jugador])
+                self.proyectiles.actualizar_disparos([jugador], plataformas)
                 self.draw()

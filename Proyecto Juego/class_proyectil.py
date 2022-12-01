@@ -19,10 +19,14 @@ class Proyectil(ObjetoAnimado):
         self.rect_hitbox.x += self.move_x
 
 
-    def verificar_colision(self,objetivos):
+    def verificar_colision(self,objetivos, plataformas):
         for objetivo in objetivos:
             if self.rect_hitbox.colliderect(objetivo.rect_hitbox) and objetivo.vida > 0:
                 objetivo.recibir_golpe(self)
+                self.activo = False
+
+        for plataforma in plataformas:
+            if self.rect_hitbox.colliderect(plataforma.rect):
                 self.activo = False
 
 
@@ -31,10 +35,10 @@ class Proyectil(ObjetoAnimado):
             self.activo = False
 
 
-    def actualizar_disparo(self, objetivos):
+    def actualizar_disparo(self, objetivos, plataformas):
         self.updatear_frames()
         self.actualizar_posicion()
-        self.verificar_colision(objetivos)
+        self.verificar_colision(objetivos, plataformas)
         self.verificar_limite_x()
         self.draw()
 
@@ -51,9 +55,9 @@ class GrupoProyectiles:
         disparo = Proyectil(animacion, pos_x, pos_y, -100, 1600, velocidad, aux_x, aux_y, ancho, alto, damage, self.master, self.screen)
         self.lista_disparos.append(disparo)
 
-    def actualizar_disparos(self, objetivos):
+    def actualizar_disparos(self, objetivos, plataformas):
         for disparo in self.lista_disparos:
-            disparo.actualizar_disparo(objetivos)
+            disparo.actualizar_disparo(objetivos, plataformas)
             if not disparo.activo:
                 self.lista_disparos.remove(disparo)
 

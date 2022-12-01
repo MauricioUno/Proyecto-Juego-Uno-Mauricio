@@ -78,6 +78,7 @@ class Guard(ObjetoAnimado):
                 self.controlar_ruta(plataformas)
                 self.aplicar_gravedad()
                 self.actualizar_posicion()
+                self.verificar_limite_y()
                 pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_l)
                 pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_r)
                 pygame.draw.rect(self.screen, C_GREEN_2, self.rect_pies)
@@ -106,6 +107,10 @@ class Guard(ObjetoAnimado):
     def aplicar_gravedad(self):
         if not self.sobre_plataforma:
             self.move_y = self.gravedad
+
+    def verificar_limite_y(self):
+        if self.rect_pies.y > ALTO_VENTANA + 200:
+            self.activo = False
 
 
 class StillShooter(ObjetoAnimado):

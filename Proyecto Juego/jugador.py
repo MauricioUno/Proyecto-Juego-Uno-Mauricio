@@ -166,7 +166,7 @@ class Jugador:
     def cooldown_disparo(self, delta_ms):
         if not self.shoot_allowed:
             self.timer_disparo += delta_ms
-            if self.timer_disparo > 200:
+            if self.timer_disparo > 250:
                 self.timer_disparo = 0
                 self.shoot_allowed = True
 
@@ -319,7 +319,7 @@ class Jugador:
                 self.actualizar_posicion()
                 self.animaciones()
                 self.updatear_frames()
-                self.proyectiles.actualizar_disparos(objetivos)
+                self.proyectiles.actualizar_disparos(objetivos, plataformas)
                 self.verificar_colision_enemigos(objetivos)
                 self.cooldown_invulnerabilidad(delta_ms)
                 self.cooldown_disparo(delta_ms)

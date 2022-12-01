@@ -47,7 +47,7 @@
                     {
                         "tipo": "Platform",
                         "pos": [0,700],
-                        "dim": [300,50],
+                        "dim": [300,75],
                         "cant": [1,1],
                         "distancia": [0,0]
                     },
