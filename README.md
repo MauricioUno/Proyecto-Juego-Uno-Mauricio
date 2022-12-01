@@ -17,5 +17,4 @@ Version en desarrollo de GLITCH
 * Pendiente:
     - La influencia que tienen las plataformas sobre el jugador tarda en aplicarse
     - Agregar plataformas con nuevos movimientos (HECHO)
-    - Terminar manager Proyectiles y Plataformas general
-    - Todos objetos deben estar sobre la surface de form_nivel
+    - Terminar manager Proyectiles, Plataformas general
