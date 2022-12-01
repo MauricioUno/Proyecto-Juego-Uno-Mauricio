@@ -16,6 +16,7 @@
                         "tipo": "17",
                         "pos": [-50,520],
                         "dim": [150,37],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     },
 
@@ -23,6 +24,7 @@
                         "tipo": "17",
                         "pos": [-50,690],
                         "dim": [400,100],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     },
 
@@ -30,6 +32,7 @@
                         "tipo": "icebox",
                         "pos": [1450,370],
                         "dim": [75,75],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     },
 
@@ -37,6 +40,7 @@
                         "tipo": "icebox",
                         "pos": [1450,270],
                         "dim": [75,75],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     },
 
@@ -45,6 +49,7 @@
                         "tipo": "17",
                         "pos": [300,270],
                         "dim": [200,50],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     }
                 ],
@@ -55,7 +60,8 @@
                         "pos": [1350,570],
                         "dim": [100,25],
                         "speed": -10,
-                        "route": 300
+                        "route": 300,
+                        "retorno": 0
                     },
 
                     {
@@ -63,7 +69,8 @@
                         "pos": [1410,445],
                         "dim": [100,25],
                         "speed": 5,
-                        "route": 50
+                        "route": 50,
+                        "retorno": 0
                     },
 
                     {
@@ -71,7 +78,8 @@
                         "pos": [1420,345],
                         "dim": [100,25],
                         "speed": 4,
-                        "route": 24
+                        "route": 24,
+                        "retorno": 0
                     },
 
                     {
@@ -79,7 +87,8 @@
                         "pos": [700,570],
                         "dim": [50,12],
                         "speed": -10,
-                        "route": 300
+                        "route": 300,
+                        "retorno": 0
                     }
                 ],
                 "movCircular":[
@@ -92,30 +101,38 @@
                     }
                 ]
             },
+            
+            "trampas":
+            {
+
+            },
             "enemigos":
             {
             },
-            "items":{
-                "score":[
-                    {
-                        "item":"strawberry",
-                        "dimension": [30,30],
-                        "coordenadas": [10, 490]
-                    },
+            
+            "items":[
+                {
+                    "item":"strawberry",
+                    "efecto": "score",
+                    "dimension": [30,30],
+                    "coordenadas": [10, 490]
+                },
 
-                    {
-                        "item":"strawberry",
-                        "dimension": [30,30],
-                        "coordenadas": [50, 130]
-                    },
+                {
+                    "item":"strawberry",
+                    "efecto": "score",
+                    "dimension": [30,30],
+                    "coordenadas": [50, 130]
+                },
 
-                    {
-                        "item":"strawberry",
-                        "dimension": [30,30],
-                        "coordenadas": [900, 150]
-                    }
-                ]
-            }
+                {
+                    "item":"strawberry",
+                    "efecto": "score",
+                    "dimension": [30,30],
+                    "coordenadas": [900, 150]
+                }
+            ]
+            
         }
     ]
 }

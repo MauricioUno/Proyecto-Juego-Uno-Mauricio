@@ -30,7 +30,7 @@ class FormWin(Form):
 
     def on_click_boton_next_lvl(self, aux):
         next_lvl = self.nro_lvl + 1
-        if next_lvl < 3:
+        if next_lvl < 4:
             self.forms_dict[self.clave_lvl].resetear()
             self.forms_dict["pause"].cambiar_nivel(next_lvl)
             self.forms_dict["win"].cambiar_nivel(next_lvl)

@@ -6,6 +6,7 @@ from gui_widget import Widget
 from gui_progressbar import HealthBar
 
 from class_plataforma import ListaPlataformas
+from class_trampa import ListaTrampas
 from class_portal import Portal
 from class_item import ListaItems
 from enemy_lista import ListaEnemigos
@@ -24,8 +25,9 @@ class FormNivel(Form):
         self.tiempo_score = data_nivel["score_tiempo"]
         super().__init__(self.name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
         self.plataformas = ListaPlataformas(data_nivel["plataformas"], master_surface, self.name)
-        self.items = ListaItems(data_nivel["items"], master_surface)
+        self.trampas = ListaTrampas(data_nivel["trampas"], master_surface, self.name)
         self.enemigos = ListaEnemigos(data_nivel["enemigos"], master_surface)
+        self.items = ListaItems(data_nivel["items"], master_surface, self.enemigos)
         self.jugador = Jugador(data_nivel["pos_player"][0], data_nivel["pos_player"][1], master_surface, self)
         self.portal = Portal(data_nivel["pos_portal"][0], data_nivel["pos_portal"][1], master_surface, self.name)
 
@@ -73,6 +75,7 @@ class FormNivel(Form):
         self.master_surface.blit(self.surface, self.slave_rect)
         self.render()
         self.plataformas.actualizar(delta_ms)
+        self.trampas.actualizar(delta_ms, [self.jugador])
         self.items.actualizar(delta_ms, [self.jugador])
         self.enemigos.actualizar(self.jugador, delta_ms)
         self.jugador.actualizar(self.plataformas.lista, self.enemigos.lista, delta_ms, lista_eventos, teclas_presionadas)

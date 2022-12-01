@@ -13,7 +13,7 @@ class FormMenuNiveles(Form):
         #self.nivel = Widget(master_form=self, x=1135 -250, y=20, w=500, h=120, text="Bosque", font_size= 100, font_color= COLOR_TEXTO_MENU)
         self.boton1 = Button(master=self,x=20,y=20,w=750,h=180,image_background=PATH_RECURSOS + r"\background\Forest0.png",on_click=self.start_level,on_click_param=1, color_border= C_GREEN_2)
         self.boton2 = Button(master=self,x=20,y=220,w=750,h=180,image_background=PATH_RECURSOS + r"\background\Snow0.png",on_click=self.start_level,on_click_param=2, color_border=C_BLUE_3)
-        self.boton3 = Button(master=self,x=20,y=420,w=750,h=180,image_background=PATH_RECURSOS + r"\background\Cave0.png",on_click=print,on_click_param=3, color_border=C_BROWN)
+        self.boton3 = Button(master=self,x=20,y=420,w=750,h=180,image_background=PATH_RECURSOS + r"\background\Cave0.png",on_click=self.start_level,on_click_param=3, color_border=C_BROWN)
         self.boton4 = Button(master=self,x=20, y=670, w=120,h =50,image_background=None, on_click=self.on_click_boton, on_click_param="main",text="atras", font_size= 50, font_color=COLOR_TEXTO_MENU) 
         
         self.lista_widget = [self.boton1,self.boton2,self.boton3,self.boton4]

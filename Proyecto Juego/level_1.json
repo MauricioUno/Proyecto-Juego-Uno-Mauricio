@@ -15,13 +15,15 @@
                         "tipo": "Mid Grass",
                         "pos": [-490,660],
                         "dim": [100,100],
-                        "cant": [11,1]
+                        "cant": [11,1],
+                        "distancia": [100,0]
                     },
 
                     {
                         "tipo": "Left Column",
                         "pos": [600,460],
                         "dim": [100,300],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     },
     
@@ -29,6 +31,7 @@
                         "tipo": "Mid Column",
                         "pos": [700,460],
                         "dim": [100,300],
+                        "distancia": [100,0],
                         "cant": [10,1]
                     },
 
@@ -36,6 +39,7 @@
                         "tipo": "Platform",
                         "pos": [300,150],
                         "dim": [100,25],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     },
     
@@ -43,6 +47,7 @@
                         "tipo": "Platform",
                         "pos": [750,270],
                         "dim": [100,25],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     },
 
@@ -50,6 +55,7 @@
                         "tipo": "Platform",
                         "pos": [1190,270],
                         "dim": [200,50],
+                        "distancia": [0,0],
                         "cant": [1,1]
                     }
                 ],
@@ -61,10 +67,18 @@
                         "pos": [150,250],
                         "dim": [100,25],
                         "speed": 5,
-                        "route": 300
+                        "route": 300,
+                        "retorno": 0
+                        
                     }        
                 ]
             },
+            
+            "trampas":
+            {
+
+            },
+
             "enemigos":
             {
                 "ix":[
@@ -85,28 +99,31 @@
                     "cant": 2
                 }
             },
-            "items":{
-                "score":[
-                    {
-                        "item":"strawberry",
-                        "dimension": [30,30],
-                        "coordenadas": [335, 120]
-                    },
+            
+            "items":[
+                {
+                    "item":"strawberry",
+                    "efecto": "score",
+                    "dimension": [30,30],
+                    "coordenadas": [335, 120]
+                },
 
-                    {
-                        "item":"strawberry",
-                        "dimension": [30,30],
-                        "coordenadas": [630, 430]
-                    },
+                {
+                    "item":"strawberry",
+                    "efecto": "score",
+                    "dimension": [30,30],
+                    "coordenadas": [630, 430]
+                },
 
-                    {
-                        "item":"strawberry",
-                        "dimension": [30,30],
-                        "coordenadas": [1340, 240]
-                    }
+                {
+                    "item":"strawberry",
+                    "efecto": "score",
+                    "dimension": [30,30],
+                    "coordenadas": [1340, 240]
+                }
 
-                ]
-            }
+            ]
+            
         }
     ]
 }

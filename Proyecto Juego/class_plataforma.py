@@ -27,8 +27,11 @@ class Plataforma(Imagen):
 
 
 class PlatMov(Plataforma):
-    def __init__(self, pos_x, pos_y, ancho, alto, tipo, speed, ruta, move, screen) -> None:
+    def __init__(self, pos_x, pos_y, ancho, alto, tipo, speed, ruta, move, retorno, screen) -> None:
         super().__init__(pos_x, pos_y, ancho, alto, tipo, False, screen)
+        self.x_init = pos_x
+        self.y_init = pos_y
+        self.reinicio = retorno
         self.speed = speed
         self.counter = 0
         self.movimiento = move
@@ -41,7 +44,13 @@ class PlatMov(Plataforma):
     def controlar_movimiento(self):
         self.counter += 1
         if self.counter > self.max:
-            self.speed *= -1
+            if self.reinicio:
+                self.rect.x = self.x_init 
+                self.rect.y = self.y_init
+                self.rect_piso.x = self.x_init
+                self.rect_piso.y = self.y_init
+            else:
+                self.speed *= -1
             self.counter = 0
     
         self.move_x = self.speed
@@ -127,14 +136,14 @@ class ListaPlataformas:
                     tile = "{0}/{1}".format(self.name, dato["tipo"])
                     plataforma = Plataforma(pos_x, pos_y, dato["dim"][0], dato["dim"][1], tile, True, self.screen)
                     self.lista.append(plataforma)
-                    pos_x += dato["dim"][0]
-                pos_y += dato["dim"][1]
+                    pos_x += dato["distancia"][0]
+                pos_y += dato["distancia"][1]
 
 
     def agregar_plataforma_mov(self, lista_plataformas, move):
         for dato in lista_plataformas:
             tile = "{0}/{1}".format(self.name, dato["tipo"])
-            plataforma = PlatMov(dato["pos"][0], dato["pos"][1], dato["dim"][0], dato["dim"][1], tile, dato["speed"], dato["route"], move, self.screen)
+            plataforma = PlatMov(dato["pos"][0], dato["pos"][1], dato["dim"][0], dato["dim"][1], tile, dato["speed"], dato["route"], move, dato["retorno"],self.screen)
             self.lista.append(plataforma)
 
     

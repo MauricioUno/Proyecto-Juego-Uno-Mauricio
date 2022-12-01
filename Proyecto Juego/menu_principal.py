@@ -27,7 +27,8 @@ pause = FormPausa(name="pause", master_surface=screen, x = 600, y=180, w=300, h=
 win = FormWin(name="win", master_surface=screen, x = 375, y = 135, w = 750, h =450, imagen_background= PATH_RECURSOS + r"\gui\TablaH.png")
 lose = FormLose(name="lose", master_surface=screen, x = 550, y = 180, w = 400, h=350, imagen_background= PATH_RECURSOS + r"\gui\TablaH.png")
 level_one = FormNivel(nivel = 1, master_surface = screen)
-level_two = FormNivel(nivel = 2, master_surface = screen)    
+level_two = FormNivel(nivel = 2, master_surface = screen)
+level_three = FormNivel(nivel = 3, master_surface = screen)   
 while True:
 
     delta_ms = clock.tick(FPS)
@@ -63,6 +64,10 @@ while True:
     elif(level_two.active):
          level_two.update(lista_eventos, delta_ms, segundo)
          level_two.draw(lista_eventos, delta_ms, teclas_presionadas)
+
+    elif(level_three.active):
+         level_three.update(lista_eventos, delta_ms, segundo)
+         level_three.draw(lista_eventos, delta_ms, teclas_presionadas)
             
     elif(pause.active):
         pause.update_widget(lista_eventos)

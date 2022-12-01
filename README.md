@@ -5,10 +5,10 @@ Version en desarrollo de GLITCH
 * Video: https://drive.google.com/file/d/1YhHOpuzbmBrcDSRAyZ6TOOyOCNIKfCNj/view?usp=share_link
 
 * Importante:
-    - El nivel 3 no esta disponible
+    - El nivel 3 no esta disponible (HECHO)
     - No se guarda el score del jugador
     - El form_win no esta terminado; no aparece el score total y el boton next hace nada (HECHO)
-    - No hay trampas
+    - No hay trampas (HECHO)
     - Las balas no colisionan con las paredes
     - Agregar gravedad y colision a los enemigos que la requieran
     - No hay sonido
@@ -16,6 +16,6 @@ Version en desarrollo de GLITCH
 
 * Pendiente:
     - La influencia que tienen las plataformas sobre el jugador tarda en aplicarse
-    - Agregar plataformas con nuevos movimientos
+    - Agregar plataformas con nuevos movimientos (HECHO)
     - Terminar manager Proyectiles y Plataformas general
     - Todos objetos deben estar sobre la surface de form_nivel
