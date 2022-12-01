@@ -40,61 +40,83 @@ class RandomGhost(ObjetoAnimado):
 
 
 class Guard(ObjetoAnimado):
-    def __init__(self, animacion, pos_x, pos_y, velocidad, min_x, max_x, screen):
+    def __init__(self, animacion, pos_x, pos_y, velocidad, screen):
         self.direccion = choice([DERECHA, IZQUIERDA])
         super().__init__(animacion[self.direccion], pos_x, pos_y, screen)
         self.velocidad = velocidad
+        if self.direccion == IZQUIERDA:
+            self.velocidad *= -1
+        self.sobre_plataforma = False
+        self.gravedad = 10
+
         self.move_x = self.velocidad
         self.move_y = 0
-        self.maximo_x = max_x
-        self.minimo_x = min_x
         self.activo = True
         self.vivo = True
         self.timer = 0
 
+    def recibir_golpe(self,elemento):
+        self.vida += -elemento.damage
+        if self.vida < 1:
+            self.activo = False
+            elemento.master.score += self.puntos    
 
-    def controlar_ruta(self):
-        if self.direccion == IZQUIERDA:
-            if self.rect.x > self.minimo_x:
-                self.move_x = -self.velocidad
-            else:
-                self.direccion = DERECHA       
-        else:
-            if self.rect.x < self.maximo_x:
-                self.move_x = self.velocidad
-            else:
+    def actualizar_posicion(self):
+        self.rect.move_ip(self.move_x, self.move_y)
+        self.rect_hitbox.move_ip(self.move_x, self.move_y)
+        self.rect_collide_l.move_ip(self.move_x, self.move_y)
+        self.rect_collide_r.move_ip(self.move_x, self.move_y)
+        self.rect_pies.move_ip(self.move_x, self.move_y)
+
+
+    def actualizar(self, jugador, delta_ms, plataformas):
+        if self.activo:
+            self.timer += delta_ms
+            if self.timer > 30:
+                self.timer = 0
+                self.updatear_frames()
+                self.controlar_ruta(plataformas)
+                self.aplicar_gravedad()
+                self.actualizar_posicion()
+                pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_l)
+                pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_r)
+                pygame.draw.rect(self.screen, C_GREEN_2, self.rect_pies)
+                self.draw()
+
+    def controlar_ruta(self, plataformas):
+        for plataforma in plataformas:
+            if self.rect_collide_r.colliderect(plataforma.rect) and self.direccion == DERECHA:
+                self.move_x *= -1
                 self.direccion = IZQUIERDA
+                break
+            elif self.rect_collide_l.colliderect(plataforma.rect) and self.direccion == IZQUIERDA:
+                self.move_x *= -1
+                self.direccion = DERECHA
+                break
 
+        self.sobre_plataforma = False
+        for plataforma in plataformas:
+            if self.rect_pies.colliderect(plataforma.rect_piso):
+                self.sobre_plataforma = True
+                self.move_y = plataforma.move_y         
+                break
 
+        self.animacion = self.walk[self.direccion]
+
+    def aplicar_gravedad(self):
+        if not self.sobre_plataforma:
+            self.move_y = self.gravedad
 
 
 class StillShooter(ObjetoAnimado):
     def __init__(self, animacion, pos_x, pos_y, master, screen):
-        super().__init__(animacion, pos_x, pos_y, screen)
-
+        self.direccion = choice([DERECHA, IZQUIERDA])
+        super().__init__(animacion[self.direccion], pos_x, pos_y, screen)
         self.activo = True
         self.proyectiles = GrupoProyectiles(master, screen)
         self.atacando = False
-        self.timer = 0
         self.shoot_allowed = True
+        self.timer = 0
         self.timer_disparo = 0
         self.move_x = 0
         self.move_y = 0
-
-
-    def verificar_vision(self, jugadores):
-        if self.shoot_allowed:
-            for jugador in jugadores:
-                if self.rect_vision.colliderect(jugador.rect_hitbox) and jugador.vida > 0:
-                    self.atacando = True
-                    break
-                else:
-                    self.atacando = False
-
-
-    def actualizar_cooldown_disparo(self, delta_ms):
-        if not self.shoot_allowed:
-            self.timer_disparo += delta_ms
-            if self.timer_disparo > 750:
-                self.timer_disparo = 0
-                self.shoot_allowed = True

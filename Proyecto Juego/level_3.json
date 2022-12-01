@@ -3,7 +3,7 @@
         {
             "background": "/background/Cave0.png",
             "pos_player": [20,500],
-            "pos_portal": [90,170],
+            "pos_portal": [-20,170],
             "tiempo": 60,
             "score_tiempo": 10,
             "score_vida": 15,
@@ -11,20 +11,13 @@
             {
                 "terreno":
                 [
+                    
                     {
                         "tipo": "platform",
-                        "pos": [-100,680],
+                        "pos": [-100,300],
                         "dim": [200,50],
-                        "distancia": [0,0],
-                        "cant": [1,1]
-                    },
-
-                    {
-                        "tipo": "platform",
-                        "pos": [50,300],
-                        "dim": [200,50],
-                        "distancia": [0,0],
-                        "cant": [1,1]
+                        "distancia": [0,380],
+                        "cant": [1,2]
                     },
 
                     {
@@ -48,16 +41,16 @@
                     {
                         "tipo": "platform",
                         "pos": [390,300],
-                        "dim": [75,19],
+                        "dim": [100,25],
                         "speed": 10,
-                        "route": 200,
+                        "route": 250,
                         "retorno": 0
                     }
                 ],
                 "movVertical":
                 [
                     {
-                        "tipo": "stoneblock",
+                        "tipo": "platform",
                         "pos": [150, 550],
                         "dim": [100,25],
                         "speed": 7,
@@ -66,7 +59,7 @@
                     },
 
                     {
-                        "tipo": "stoneblock",
+                        "tipo": "platform",
                         "pos": [550, 550],
                         "dim": [100,25],
                         "speed": 7,
@@ -75,7 +68,7 @@
                     },
 
                     {
-                        "tipo": "stoneblock",
+                        "tipo": "platform",
                         "pos": [350, 800],
                         "dim": [100,25],
                         "speed": -7,
@@ -100,8 +93,7 @@
                     {
                         "tipo": "/tile/level_3/Bush (2).png",
                         "pos": [800,620],
-                        "dim": [75,60],
-                        "cant": [1,1]
+                        "dim": [75,60]
                     }
                 ],
 
@@ -129,8 +121,7 @@
             {
                 "groodle":[
                     {
-                        "coordenadas": [1400,585],
-                        "direccion": "left"
+                        "coordenadas": [1400,585]
                     }
                 ]
             },

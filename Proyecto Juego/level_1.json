@@ -2,102 +2,112 @@
     "level_1":[
         {
             "background": "/background/Forest1.png",
-            "pos_player": [50,500],
-            "pos_portal": [1230,140],
+            "pos_player": [20,530],
+            "pos_portal": [1190,130],
             "tiempo": 60,
             "score_tiempo": 5,
-            "score_vida": 5,
+            "score_vida": 10,
             "plataformas":
             {
                 "terreno":
                 [
                     {
-                        "tipo": "Mid Grass",
-                        "pos": [-490,660],
+                        "tipo": "End",
+                        "pos": [-100,0],
+                        "dim": [100,72],
+                        "cant": [2,10],
+                        "distancia": [1600,72]
+                    },
+
+                    {
+                        "tipo": "Mid Platform",
+                        "pos": [300,260],
                         "dim": [100,100],
-                        "cant": [11,1],
-                        "distancia": [100,0]
+                        "cant": [10,2],
+                        "distancia": [100,390]
                     },
 
                     {
-                        "tipo": "Left Column",
-                        "pos": [600,460],
-                        "dim": [100,300],
-                        "distancia": [0,0],
-                        "cant": [1,1]
-                    },
-    
-                    {
-                        "tipo": "Mid Column",
-                        "pos": [700,460],
-                        "dim": [100,300],
-                        "distancia": [100,0],
-                        "cant": [10,1]
+                        "tipo": "End",
+                        "pos": [300,160],
+                        "dim": [100,100],
+                        "cant": [1,2],
+                        "distancia": [530,390]
                     },
 
                     {
-                        "tipo": "Platform",
-                        "pos": [300,150],
-                        "dim": [100,25],
-                        "distancia": [0,0],
-                        "cant": [1,1]
+                        "tipo": "End",
+                        "pos": [1150, -40],
+                        "dim": [50,50],
+                        "cant": [1,6],
+                        "distancia": [0,50]
                     },
-    
-                    {
-                        "tipo": "Platform",
-                        "pos": [750,270],
-                        "dim": [100,25],
-                        "distancia": [0,0],
-                        "cant": [1,1]
-                    },
+
 
                     {
                         "tipo": "Platform",
-                        "pos": [1190,270],
-                        "dim": [200,50],
-                        "distancia": [0,0],
-                        "cant": [1,1]
+                        "pos": [0,700],
+                        "dim": [300,50],
+                        "cant": [1,1],
+                        "distancia": [0,0]
+                    },
+
+                    {
+                        "tipo": "Left Platform",
+                        "pos": [1450,410],
+                        "dim": [50,50],
+                        "cant": [1,1],
+                        "distancia": [0,0]
                     }
                 ],
                 "movVertical":
                 [
-                    
                     {
                         "tipo": "Platform",
-                        "pos": [150,250],
+                        "pos": [50, 550],
                         "dim": [100,25],
-                        "speed": 5,
-                        "route": 300,
+                        "speed": -7,
+                        "route": 350,
+                        "retorno": 1
+                    },
+
+                    {
+                        "tipo": "Platform",
+                        "pos": [1300, 700],
+                        "dim": [200,50],
+                        "speed": -5,
+                        "route": 150,
                         "retorno": 0
+                    }
                         
-                    }        
+                    
                 ]
             },
             
             "trampas":
             {
-
             },
 
             "enemigos":
             {
                 "ix":[
                     {
-                        "coordenadas": [1000,370],
-                        "width_ruta": 400
+                        "coordenadas": [500,0]
+                    },
+                    {
+                        "coordenadas": [800,0]
+                    },
+
+                    {
+                        "coordenadas": [1300,0]
                     }
                 ],
 
                 "groodle":[
                     {
-                        "coordenadas": [510,570],
-                        "direccion": "left"
+                        "coordenadas": [1020,560]
                     }
-                ],
-
-                "batterfly":{
-                    "cant": 2
-                }
+                ]
             },
             
             "items":[
@@ -105,23 +115,36 @@
                     "item":"strawberry",
                     "efecto": "score",
                     "dimension": [30,30],
-                    "coordenadas": [335, 120]
+                    "coordenadas": [260, 670]
                 },
 
                 {
                     "item":"strawberry",
                     "efecto": "score",
                     "dimension": [30,30],
-                    "coordenadas": [630, 430]
+                    "coordenadas": [600, 230]
                 },
 
                 {
                     "item":"strawberry",
                     "efecto": "score",
                     "dimension": [30,30],
-                    "coordenadas": [1340, 240]
+                    "coordenadas": [680, 620]
+                },
+
+                {
+                    "item":"orb",
+                    "efecto": "ammo",
+                    "dimension": [30,30],
+                    "coordenadas": [1050, 230]
+                },
+
+                {
+                    "item":"orb",
+                    "efecto": "ammo",
+                    "dimension": [30,30],
+                    "coordenadas": [1460, 380]
                 }
-
             ]
             
         }

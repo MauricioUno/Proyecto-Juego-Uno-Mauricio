@@ -11,8 +11,8 @@ class Batterfly(RandomGhost):
         super().__init__(self.fly, self.invertido, screen)
         self.rect_hitbox = pygame.Rect(self.rect.x + 20, self.rect.y + 10 , 65, 60)
         self.vida = 5
-        self.damage = 20
-        self.puntos = 30    
+        self.damage = 10
+        self.puntos = 10    
         self.timer_respawn = 0
     
 
@@ -41,7 +41,7 @@ class Batterfly(RandomGhost):
             self.vivo = False
 
 
-    def actualizar(self, jugador, delta_ms):
+    def actualizar(self, jugador, delta_ms, plataformas):
         if self.vivo:
             self.timer += delta_ms
             if self.timer > 30:

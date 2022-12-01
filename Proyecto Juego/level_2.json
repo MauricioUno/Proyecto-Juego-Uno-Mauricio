@@ -2,10 +2,10 @@
     "level_2":[
         {
             "background": "/background/snow3.png",
-            "pos_player": [100,500],
-            "pos_portal": [340,140],
+            "pos_player": [0,540],
+            "pos_portal": [-20,160],
             "tiempo": 60,
-            "score_tiempo": 10,
+            "score_tiempo": 20,
             "score_vida": 2,
             "plataformas":
             {
@@ -14,97 +14,75 @@
 
                     {
                         "tipo": "17",
-                        "pos": [-50,520],
-                        "dim": [150,37],
-                        "distancia": [0,0],
-                        "cant": [1,1]
-                    },
-
-                    {
-                        "tipo": "17",
-                        "pos": [-50,690],
-                        "dim": [400,100],
-                        "distancia": [0,0],
-                        "cant": [1,1]
-                    },
-
-                    {
-                        "tipo": "icebox",
-                        "pos": [1450,370],
-                        "dim": [75,75],
-                        "distancia": [0,0],
-                        "cant": [1,1]
-                    },
-
-                    {
-                        "tipo": "icebox",
-                        "pos": [1450,270],
-                        "dim": [75,75],
-                        "distancia": [0,0],
-                        "cant": [1,1]
-                    },
-
-                    
-                    {
-                        "tipo": "17",
-                        "pos": [300,270],
+                        "pos": [-100,300],
                         "dim": [200,50],
-                        "distancia": [0,0],
-                        "cant": [1,1]
+                        "distancia": [0,380],
+                        "cant": [1,2]
                     }
                 ],
                 "movHorizontal":
                 [
                     {
                         "tipo": "17",
-                        "pos": [1350,570],
+                        "pos": [1350,630],
                         "dim": [100,25],
                         "speed": -10,
-                        "route": 300,
-                        "retorno": 0
-                    },
-
-                    {
-                        "tipo": "icebox",
-                        "pos": [1410,445],
-                        "dim": [100,25],
-                        "speed": 5,
-                        "route": 50,
-                        "retorno": 0
-                    },
-
-                    {
-                        "tipo": "icebox",
-                        "pos": [1420,345],
-                        "dim": [100,25],
-                        "speed": 4,
-                        "route": 24,
+                        "route": 410,
                         "retorno": 0
                     },
 
                     {
                         "tipo": "17",
-                        "pos": [700,570],
-                        "dim": [50,12],
+                        "pos": [700,630],
+                        "dim": [100,25],
                         "speed": -10,
-                        "route": 300,
+                        "route": 410,
                         "retorno": 0
                     }
                 ],
+
+                "movVertical":
+                [
+                    {
+                        "tipo": "17",
+                        "pos": [400,350],
+                        "dim": [100,25],
+                        "speed": -7,
+                        "route": 200,
+                        "retorno": 1
+                    },
+
+                    {
+                        "tipo": "17",
+                        "pos": [200,150],
+                        "dim": [100,25],
+                        "speed": 7,
+                        "route": 200,
+                        "retorno": 1
+                    }
+                ],
+
                 "movCircular":[
                     {
                         "tipo": "icebox",
-                        "pos": [1200,200],
+                        "pos": [1250,200],
                         "dim": [100,25],
-                        "move":[600,200],
-                        "speed": 3
+                        "move":[300,200],
+                        "speed": 5
+                    },
+
+                    {
+                        "tipo": "icebox",
+                        "pos": [1400,360],
+                        "dim": [100,25],
+                        "move":[0,200],
+                        "speed": 5
                     }
                 ]
             },
             
             "trampas":
             {
-
             },
             "enemigos":
             {
@@ -115,21 +93,21 @@
                     "item":"strawberry",
                     "efecto": "score",
                     "dimension": [30,30],
-                    "coordenadas": [10, 490]
+                    "coordenadas": [235, 300]
                 },
 
                 {
                     "item":"strawberry",
                     "efecto": "score",
                     "dimension": [30,30],
-                    "coordenadas": [50, 130]
+                    "coordenadas": [850, 600]
                 },
 
                 {
                     "item":"strawberry",
                     "efecto": "score",
                     "dimension": [30,30],
-                    "coordenadas": [900, 150]
+                    "coordenadas": [1010, 120]
                 }
             ]
             

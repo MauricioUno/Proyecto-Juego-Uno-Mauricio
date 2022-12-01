@@ -77,7 +77,7 @@ class FormNivel(Form):
         self.plataformas.actualizar(delta_ms)
         self.trampas.actualizar(delta_ms, [self.jugador])
         self.items.actualizar(delta_ms, [self.jugador])
-        self.enemigos.actualizar(self.jugador, delta_ms)
+        self.enemigos.actualizar(self.jugador, delta_ms, self.plataformas.lista)
         self.jugador.actualizar(self.plataformas.lista, self.enemigos.lista, delta_ms, lista_eventos, teclas_presionadas)
         self.portal.actualizar([self.jugador], delta_ms)
 

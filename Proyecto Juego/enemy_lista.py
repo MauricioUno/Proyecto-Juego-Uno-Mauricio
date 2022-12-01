@@ -14,28 +14,25 @@ class ListaEnemigos:
         if "groodle" in lista_enemigos.keys():
             self.agregar_spirit_groodle(lista_enemigos["groodle"], screen)
 
-        if "batterfly" in lista_enemigos.keys():
-            self.agregar_batterfly(lista_enemigos["batterfly"]["cant"], screen)
-
         
 
 
-    def actualizar(self, jugador, delta_ms):     
+    def actualizar(self, jugador, delta_ms, plataformas):     
         for enemigo in self.lista:
-            enemigo.actualizar(jugador, delta_ms)
+            enemigo.actualizar(jugador, delta_ms, plataformas)
             if not enemigo.activo:
                 self.lista.remove(enemigo)    
 
 
     def agregar_spirit_groodle(self, lista_groodle, screen):
         for groodle in lista_groodle:
-            enemigo_groodle = SpiritGroodle(groodle["coordenadas"][0], groodle["coordenadas"][1], groodle["direccion"], screen)
+            enemigo_groodle = SpiritGroodle(groodle["coordenadas"][0], groodle["coordenadas"][1], screen)
             self.lista.append(enemigo_groodle)
 
 
     def agregar_spirit_ix(self, lista_ix, screen):
         for ix in lista_ix:
-            enemigo_ix = SpiritIx(ix["coordenadas"][0], ix["coordenadas"][1], ix["width_ruta"], screen)
+            enemigo_ix = SpiritIx(ix["coordenadas"][0], ix["coordenadas"][1], screen)
             self.lista.append(enemigo_ix)
 
 

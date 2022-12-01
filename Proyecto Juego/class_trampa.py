@@ -4,7 +4,7 @@ import re
 class Trampa(Imagen):
     def __init__(self, pos_x, pos_y, ancho, alto, path_imagen, screen) -> None:
         super().__init__(path_imagen, ancho, alto, pos_x, pos_y, screen)
-        self.damage = 25
+        self.damage = 20
         self.move_x = 0
         self.move_y = 0
         self.timer = 0
@@ -96,19 +96,13 @@ class ListaTrampas():
         if "movVertical" in lista_trampas.keys():
             self.agregar_trampa_movil(lista_trampas["movVertical"], "vertical")
 
+
     def agregar_trampa(self, lista_trampas):
         for trap in lista_trampas:
-            pos_y = trap["pos"][1]
-            for y in range(trap["cant"][1]):
-                pos_x = trap["pos"][0]
-                for x in range(trap["cant"][0]):
-                    trampa = Trampa(pos_x, pos_y, trap["dim"][0], trap["dim"][1], trap["tipo"], self.screen)
-                    self.lista.append(trampa)
-                    pos_x += trap["dim"][0]
-                pos_y += trap["dim"][1]
+            trampa = Trampa(trap["pos"][0], trap["pos"][1], trap["dim"][0], trap["dim"][1], trap["tipo"], self.screen)
+            self.lista.append(trampa)
+                    
 
-    
-    
     def agregar_trampa_movil(self, lista_trampas, move):
         for trampa in lista_trampas:
             trap = TrampaMovil(trampa["pos"][0], trampa["pos"][1], trampa["dim"][0], trampa["dim"][1], trampa["retorno"], trampa["speed"], move, trampa["route"], trampa["tipo"],self.screen)

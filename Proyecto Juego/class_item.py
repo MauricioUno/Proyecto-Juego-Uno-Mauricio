@@ -24,9 +24,11 @@ class Item(Imagen):
             objetivo.score += 200
 
         elif re.search("spawn", self.efecto, re.IGNORECASE):
-            objetivo.score += 500
-            enemigos.agregar_batterfly(2, self.screen)
+            objetivo.score += 1000
+            enemigos.agregar_batterfly(3, self.screen)
 
+        elif re.search("ammo", self.efecto, re.IGNORECASE):
+            objetivo.municion += 5
         
         
     def actualizar(self, delta_ms, objetivos, enemigos):
@@ -51,7 +53,6 @@ class ListaItems:
         for item in lista_items:
             aux_item = Item(item["item"], item["dimension"][0], item["dimension"][1], item["coordenadas"][0], item["coordenadas"][1],item["efecto"], self.screen)
             self.lista.append(aux_item)
-
 
     def actualizar(self, delta_ms, objetivos):
         for item in self.lista:
