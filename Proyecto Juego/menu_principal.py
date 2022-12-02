@@ -37,7 +37,6 @@ while True:
             sys.exit() 
 
     main_menu.update_form(lista_eventos, delta_ms, segundo, teclas_presionadas)
-        
     pygame.display.flip()
 
 
