@@ -3,6 +3,7 @@ from pygame.locals import *
 from aux_constantes import *
 from gui_form import Form
 from gui_button import Button
+from gui_form_nivel import FormNivel
 from gui_widget import Widget
 
 
@@ -21,8 +22,10 @@ class FormMenuNiveles(Form):
 
 
     def start_level(self, nro_lvl):
+        FormNivel(nivel = nro_lvl, master_surface = self.master_surface)
+        self.on_click_boton("level_{0}".format(nro_lvl))
         self.forms_dict["pause"].cambiar_nivel(nro_lvl)
         self.forms_dict["win"].cambiar_nivel(nro_lvl)
         self.forms_dict["lose"].cambiar_nivel(nro_lvl)
-        super().on_click_boton("level_{0}".format(nro_lvl))
+        
         

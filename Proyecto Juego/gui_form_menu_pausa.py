@@ -15,7 +15,7 @@ class FormPausa(Form):
 
 
     def boton_salir(self, parametro):
-        self.forms_dict[self.clave_lvl].resetear()
+        self.forms_dict.pop(self.clave_lvl)
         self.set_active(parametro)
         
         

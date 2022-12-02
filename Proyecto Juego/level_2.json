@@ -3,7 +3,7 @@
         {
             "background": "/background/snow3.png",
             "pos_player": [0,540],
-            "pos_portal": [-20,160],
+            "pos_portal": [-20,170],
             "tiempo": 60,
             "score_tiempo": 20,
             "score_vida": 2,

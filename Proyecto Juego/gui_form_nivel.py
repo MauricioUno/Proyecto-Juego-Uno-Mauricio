@@ -38,20 +38,16 @@ class FormNivel(Form):
         self.time = Widget(master=self, x=1390, y = 10, w=100, h=30,image_background=PATH_RECURSOS + r"\gui\time.png", text="{0}".format(self.tiempo),font_size=30, font_color=C_BLACK)
         self.lista_widget = [self.health_bar, self.orb, self.ammo, self.score, self.orb, self.ammo, self.time]
         
-        
-        
-    def resetear(self):
-        self.__init__(nivel = self.nro_nivel, master_surface = self.master_surface)
 
 
     def update(self, lista_eventos, delta_ms, segundo):
-
         self.health_bar.value = self.jugador.vida
         self.ammo.text = "{0}".format(self.jugador.municion)
         self.score.text = "{0}".format(self.jugador.score)
         self.time.text = "{0}".format(self.tiempo)
 
-        self.update_widget(lista_eventos)
+        for aux_boton in self.lista_widget:
+            aux_boton.update(lista_eventos)
 
         for event in lista_eventos:
             if event.type == pygame.KEYDOWN:

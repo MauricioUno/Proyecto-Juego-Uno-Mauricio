@@ -264,10 +264,10 @@ class Jugador:
     def draw(self):
         self.imagen = self.animacion[self.frame]
         self.form.surface.blit(self.imagen,self.rect)
-        pygame.draw.rect(self.form.surface, C_BLACK, self.rect_cabeza)
-        pygame.draw.rect(self.form.surface, C_BLACK, self.rect_pies)
-        pygame.draw.rect(self.form.surface, C_BLACK, self.rect_der)
-        pygame.draw.rect(self.form.surface, C_BLACK, self.rect_izq)
+        # pygame.draw.rect(self.form.surface, C_BLACK, self.rect_cabeza)
+        # pygame.draw.rect(self.form.surface, C_BLACK, self.rect_pies)
+        # pygame.draw.rect(self.form.surface, C_BLACK, self.rect_der)
+        # pygame.draw.rect(self.form.surface, C_BLACK, self.rect_izq)
 
     def controles(self, lista_eventos, teclas_presionadas):
         

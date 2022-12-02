@@ -5,6 +5,7 @@ Version en desarrollo de GLITCH
 * Video: https://drive.google.com/file/d/1YhHOpuzbmBrcDSRAyZ6TOOyOCNIKfCNj/view?usp=share_link
 
 * Importante:
+    - No hay continuidad en la partida del jugador (EXPLORAR!)
     - El nivel 3 no esta disponible (HECHO)
     - No se guarda el score del jugador
     - El form_win no esta terminado; no aparece el score total y el boton next hace nada (HECHO)

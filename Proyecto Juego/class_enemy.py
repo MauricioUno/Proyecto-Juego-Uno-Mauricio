@@ -79,9 +79,9 @@ class Guard(ObjetoAnimado):
                 self.aplicar_gravedad()
                 self.actualizar_posicion()
                 self.verificar_limite_y()
-                pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_l)
-                pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_r)
-                pygame.draw.rect(self.screen, C_GREEN_2, self.rect_pies)
+                # pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_l)
+                # pygame.draw.rect(self.screen, C_GREEN_2, self.rect_collide_r)
+                # pygame.draw.rect(self.screen, C_GREEN_2, self.rect_pies)
                 self.draw()
 
     def controlar_ruta(self, plataformas):

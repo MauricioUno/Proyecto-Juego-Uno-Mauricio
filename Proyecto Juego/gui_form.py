@@ -36,6 +36,14 @@ class Form():
         self.forms_dict[name].active = True
 
 
+    def update_form(self, lista_eventos, delta_ms, segundo, teclas_presionadas):
+        for aux_form in self.forms_dict.values():
+            if aux_form.active:
+                aux_form.update(lista_eventos, delta_ms, segundo)
+                aux_form.draw(lista_eventos, delta_ms, teclas_presionadas)
+                break
+
+
     def render(self):
         if(self.color_background != None):
             self.surface.fill(self.color_background)
@@ -47,12 +55,12 @@ class Form():
             pygame.draw.rect(self.surface, self.color_border, self.surface.get_rect(), 2)
 
 
-    def update_widget(self, lista_eventos):
+    def update(self, lista_eventos, delta_ms, segundo):
         for aux_boton in self.lista_widget:
             aux_boton.update(lista_eventos)
 
 
-    def draw(self):
+    def draw(self, lista_eventos, delta_ms, teclas_presionadas):
         self.master_surface.blit(self.surface,self.slave_rect)
         self.render()
         for aux_boton in self.lista_widget:
