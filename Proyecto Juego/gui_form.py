@@ -43,6 +43,7 @@ class Form():
                 aux_form.draw(lista_eventos, delta_ms, teclas_presionadas)
                 break
 
+    
 
     def render(self):
         if(self.color_background != None):

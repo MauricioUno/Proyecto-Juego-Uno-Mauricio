@@ -4,6 +4,7 @@ from aux_constantes import *
 from gui_form import Form
 from gui_form_menu_score import FormScore
 from gui_button import Button
+from Practica_SQL import crear_data_base_ranking
 
 
 class FormMenuOpciones(Form):
@@ -19,5 +20,6 @@ class FormMenuOpciones(Form):
 
     
     def abrir_score(self, parametro):
+        crear_data_base_ranking()
         FormScore(name="score", master_surface=self.master_surface, imagen_background= PATH_RECURSOS + r"\background\Pradera4.png")
         self.on_click_boton(parametro)

@@ -5,6 +5,7 @@ from gui_form import Form
 from gui_button import Button
 from gui_widget import Widget
 from gui_form_nivel import FormNivel
+from Data_lvl_SQL import obtener_datos_nivel
 
 
 class FormLose(Form):

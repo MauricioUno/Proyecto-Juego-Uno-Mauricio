@@ -10,6 +10,7 @@ class Button(Widget):
         self.on_click = on_click
         self.on_click_param = on_click_param
         self.state = M_STATE_NORMAL
+        self.active = True
         
     def render(self):
         super().render()
@@ -21,18 +22,19 @@ class Button(Widget):
 
     def update(self,lista_eventos):
         self.render()
-        mousePos = pygame.mouse.get_pos()
-        self.state = M_STATE_NORMAL
-        if self.slave_rect_collide.collidepoint(mousePos):
-            if(pygame.mouse.get_pressed()[0]):
-                self.state = M_STATE_CLICK
-            else:
-                self.state = M_STATE_HOVER
-              
-        for evento in lista_eventos:
-            if evento.type == pygame.MOUSEBUTTONDOWN:
-                if(self.slave_rect_collide.collidepoint(evento.pos)):
-                    self.on_click(self.on_click_param)
+        if self.active:
+            mousePos = pygame.mouse.get_pos()
+            self.state = M_STATE_NORMAL
+            if self.slave_rect_collide.collidepoint(mousePos):
+                if(pygame.mouse.get_pressed()[0]):
+                    self.state = M_STATE_CLICK
+                else:
+                    self.state = M_STATE_HOVER
+                
+            for evento in lista_eventos:
+                if evento.type == pygame.MOUSEBUTTONDOWN:
+                    if(self.slave_rect_collide.collidepoint(evento.pos)):
+                        self.on_click(self.on_click_param)
 
         
 

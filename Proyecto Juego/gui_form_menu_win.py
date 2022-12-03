@@ -6,6 +6,7 @@ from gui_button import Button
 from gui_widget import Widget
 from gui_form_nivel import FormNivel
 from Practica_SQL import insertar_fila
+from Data_lvl_SQL import actualizar_datos_nivel
 
 
 class FormWin(Form):
@@ -32,12 +33,12 @@ class FormWin(Form):
 
     def next_lvl(self, nada):
         next_lvl = self.nro_lvl + 1
-        if next_lvl < 4:
+        if next_lvl < ULTIMO_NIVEL + 1:
             self.forms_dict.pop(self.clave_lvl)
             self.forms_dict["pause"].cambiar_nivel(next_lvl)
             self.forms_dict["win"].cambiar_nivel(next_lvl)
             self.forms_dict["lose"].cambiar_nivel(next_lvl)
-            FormNivel(nivel= next_lvl, master_surface=self.master_surface)
+            FormNivel(nivel = next_lvl, master_surface = self.master_surface)
             self.set_active(self.clave_lvl)
 
 
@@ -57,11 +58,15 @@ class FormWin(Form):
         self.reset.on_click_param = self.clave_lvl
 
 
-    def puntaje_obtenido(self, vida = 0, scoreVida = 0, tiempo = 0, scoreTiempo = 0, scorePlayer = 0):
+    def puntaje_obtenido(self, vida = 0, scoreVida = 0, tiempo = 0, scoreTiempo = 0, scorePlayer = 0, municion = 0, reloj = 0):
         self.text_clock.text = "{0} x {1} = {2}".format(tiempo, scoreTiempo, tiempo*scoreTiempo)
         self.text_heart.text = "{0} x {1} = {2}".format(vida, scoreVida, vida*scoreVida)
         self.text_score.text = "{0} x {1} = {2}".format(scorePlayer, 1, scorePlayer*1)
         
         self.score_total = scorePlayer + tiempo*scoreTiempo + vida*scoreVida
         self.text_total.text = "Score Total: {0}".format(self.score_total)
-        insertar_fila("Mr Stink", self.score_total, 60 - tiempo)
+
+        if self.nro_lvl < ULTIMO_NIVEL:
+            actualizar_datos_nivel(self.nro_lvl + 1, vida, municion, self.score_total, reloj + 60 - tiempo, True)
+        else:
+            insertar_fila("Mr Stink", self.score_total, reloj + 60 - tiempo)

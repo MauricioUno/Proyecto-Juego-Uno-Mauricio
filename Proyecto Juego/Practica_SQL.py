@@ -1,6 +1,6 @@
 import sqlite3
 
-def crear_DB():
+def crear_data_base_ranking():
     with sqlite3.connect("Ranking.db") as conexion:
         try:
             sentencia = ''' create table ranking
@@ -9,7 +9,6 @@ def crear_DB():
                             Player text,
                             Score integer,
                             time integer
-                            
                     )
                 '''
             conexion.execute(sentencia)                       
@@ -35,11 +34,7 @@ def obtener_filas():
         except:
             print("Error al obtener los datos de la DB")
 
-
-def reiniciar_ranking():
-    with sqlite3.connect("Ranking.db") as conexion:
-        sentencia = "DELETE FROM Ranking"
-        conexion.execute(sentencia)
+        
 
 
 
