@@ -139,11 +139,11 @@ class Jugador:
 
         for plataforma in plataformas:
             if plataforma.terreno:
-                if self.rect_izq.colliderect(plataforma.rect) and self.move_allowed[IZQUIERDA]:
+                if self.rect_izq.colliderect(plataforma.rect):
                     self.move_allowed[IZQUIERDA] = False
                     self.move_x = 0
                 
-                if self.rect_der.colliderect(plataforma) and self.move_allowed[DERECHA]:
+                if self.rect_der.colliderect(plataforma):
                     self.move_allowed[DERECHA] = False
                     self.move_x = 0
 

@@ -9,7 +9,7 @@ from gui_form_menu_sonido import FormSonido
 from gui_form_menu_pausa import FormPausa
 from gui_form_menu_win import FormWin
 from gui_form_menu_lose import FormLose
-from gui_form_nivel import FormNivel
+from gui_form_menu_score import FormScore
 
 pygame.init()
 

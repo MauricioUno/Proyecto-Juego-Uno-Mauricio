@@ -45,11 +45,11 @@
 
 
                     {
-                        "tipo": "Platform",
-                        "pos": [0,700],
-                        "dim": [300,75],
-                        "cant": [1,1],
-                        "distancia": [0,0]
+                        "tipo": "End",
+                        "pos": [0,680],
+                        "dim": [100,100],
+                        "cant": [3,1],
+                        "distancia": [100,0]
                     },
 
                     {
@@ -115,7 +115,7 @@
                     "item":"strawberry",
                     "efecto": "score",
                     "dimension": [30,30],
-                    "coordenadas": [260, 670]
+                    "coordenadas": [260, 650]
                 },
 
                 {

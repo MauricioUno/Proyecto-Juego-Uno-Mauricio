@@ -25,18 +25,19 @@ class Widget:
             self.text = text
             self.font_sys = pygame.font.Font(PATH_RECURSOS + r"\Auxiliar\JingleBalonsGTDemo.ttf", font_size)
             self.font_color = font_color
-        
+            
         self.slave_surface = pygame.Surface((self.w,self.h), pygame.SRCALPHA)
         self.slave_rect = self.slave_surface.get_rect(x = self.x, y = self.y)
+        self.slave_rect_collide = pygame.Rect(self.slave_rect)
+        self.slave_rect_collide.x += self.master_form.x
+        self.slave_rect_collide.y += self.master_form.y
 
 
     def render(self):
         
         self.slave_surface = pygame.Surface((self.w,self.h), pygame.SRCALPHA)
         self.slave_rect = self.slave_surface.get_rect(x = self.x, y = self.y)
-        self.slave_rect_collide = pygame.Rect(self.slave_rect)
-        self.slave_rect_collide.x += self.master_form.x
-        self.slave_rect_collide.y += self.master_form.y
+        
 
         if self.color_background:
             self.slave_surface.fill(self.color_background)
@@ -63,4 +64,6 @@ class Widget:
 
 
     def draw(self):
+        # pygame.draw.rect(self.master_form.surface, C_BLACK, self.slave_rect)
         self.master_form.surface.blit(self.slave_surface,self.slave_rect)
+        

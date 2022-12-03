@@ -5,6 +5,7 @@ from gui_form import Form
 from gui_button import Button
 from gui_widget import Widget
 from gui_form_nivel import FormNivel
+from Practica_SQL import insertar_fila
 
 
 class FormWin(Form):
@@ -63,3 +64,4 @@ class FormWin(Form):
         
         self.score_total = scorePlayer + tiempo*scoreTiempo + vida*scoreVida
         self.text_total.text = "Score Total: {0}".format(self.score_total)
+        insertar_fila("Mr Stink", self.score_total, 60 - tiempo)
