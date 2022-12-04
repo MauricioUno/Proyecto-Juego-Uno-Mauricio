@@ -25,7 +25,7 @@ class Form():
 
         self.lista_widget = []
         
-    
+
     def on_click_boton(self, parametro):
         self.set_active(parametro)
 

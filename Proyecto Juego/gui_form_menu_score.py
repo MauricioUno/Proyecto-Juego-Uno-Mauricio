@@ -12,8 +12,8 @@ class FormScore(Form):
         self.jugador = Widget(master=self, x = 280, y = 50, w = 260, h = 90, text="Jugador", font_size= 75, font_color=COLOR_TEXTO_MENU)
         self.score = Widget(master=self, x = 605, y = 50, w = 260, h = 90, text="Puntos", font_size= 75, font_color=COLOR_TEXTO_MENU)
         self.tiempo = Widget(master=self, x = 930, y = 50, w = 260, h = 90, text="Tiempo", font_size= 75, font_color=COLOR_TEXTO_MENU)
-        self.retroceder = Button(master=self,x=20, y=670, w=120,h =50,on_click=self.salir, on_click_param="options",text="atras", font_size= 50, font_color=COLOR_TEXTO_MENU)
-        self.lista_widget = [self.score, self.jugador, self.tiempo, self.retroceder]
+        self.back = Button(master=self,x=20, y=670, w=120,h =50,on_click=self.retroceder, on_click_param="options",text="atras", font_size= 50, font_color=COLOR_TEXTO_MENU)
+        self.lista_widget = [self.score, self.jugador, self.tiempo, self.back]
         self.crear_tabla()
 
 
@@ -31,6 +31,6 @@ class FormScore(Form):
             nro += 1
 
     
-    def salir(self, parametro):
+    def retroceder(self, parametro):
         self.forms_dict.pop("score")
-        self.on_click_boton(parametro)
+        self.on_click_boton("options")

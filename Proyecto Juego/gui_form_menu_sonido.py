@@ -21,7 +21,7 @@ class FormSonido(Form):
         self.minus_efect = Button(master=self,x=440,y=500,w=50,h=50,image_background=PATH_RECURSOS + r"\gui\resta.png",on_click=self.change_efecto,on_click_param=-1)
         self.effect_bar = ElementBar(master=self,x=500,y=490,w=500,h=70,color_background=None,color_border=None, value_max = 10, image_background= PATH_RECURSOS + r"\gui\gray_bar.png",element= PATH_RECURSOS + r"\gui\green.png")
 
-        self.back = Button(master=self,x=20, y=670, w=120,h =50,image_background=None, on_click=self.on_click_boton, on_click_param="options",text="atras", font_size= 50, font_color=COLOR_TEXTO_MENU) 
+        self.back = Button(master=self,x=20, y=670, w=120,h =50,image_background=None, on_click=self.retroceder, on_click_param="options",text="atras", font_size= 50, font_color=COLOR_TEXTO_MENU) 
         self.lista_widget = [self.sonido, self.efecto, self.plus_sound, self.minus_sound, self.back, self.sound_bar, self.plus_efect, self.minus_efect, self.effect_bar]
 
 
@@ -31,3 +31,7 @@ class FormSonido(Form):
 
     def change_efecto(self, incremento):
         self.effect_bar.value += incremento
+
+    def retroceder(self, parametro):
+        self.forms_dict.pop("sound")
+        self.on_click_boton("options")
