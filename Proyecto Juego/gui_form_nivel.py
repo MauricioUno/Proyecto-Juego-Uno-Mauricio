@@ -81,6 +81,7 @@ class FormNivel(Form):
 
 
     def draw(self, lista_eventos, delta_ms, teclas_presionadas):
+
         self.master_surface.blit(self.surface, self.slave_rect)
         self.render()
         self.plataformas.actualizar(delta_ms)

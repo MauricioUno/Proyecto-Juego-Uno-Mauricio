@@ -5,14 +5,17 @@ from aux_constantes import *
 from gui_form_menu_main import FormMenuMain
 
 pygame.init()
+pygame.mixer.init()
+pygame.mixer.music.set_volume(1.0)
 
-flags = DOUBLEBUF 
-screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA), flags, 16)
+screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
 clock = pygame.time.Clock()
+
 segundo = pygame.USEREVENT + 0
 pygame.time.set_timer(segundo,1000)
 
 main_menu = FormMenuMain(name="main", master_surface = screen, imagen_background = PATH_RECURSOS + r"\background\Pradera0.png")
+
 while True:
     
     delta_ms = clock.tick(FPS)

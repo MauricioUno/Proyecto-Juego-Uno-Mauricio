@@ -18,6 +18,8 @@ class FormMenuMain(Form):
         self.boton4 = Button(master=self, x = 505, y = 410, w = 470, h = 100, on_click=self.options, on_click_param="options",text="OPCIONES", font_size= 100, font_color=COLOR_TEXTO_MENU)
         self.boton5 = Button(master=self, x = 610, y = 520, w = 280, h = 100, on_click=self.salir,text="SALIR", font_size= 100, font_color=COLOR_TEXTO_MENU)
         self.lista_widget = [self.boton3, self.boton4, self.boton5, self.title]
+        pygame.mixer.music.load(PATH_RECURSOS + r"\auxiliar\musica_menu.wav")
+        pygame.mixer.music.play(-1)
 
 
     def start(self, parametro):
