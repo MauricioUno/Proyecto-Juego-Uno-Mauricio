@@ -5,7 +5,7 @@ from gui_form import Form
 from gui_button import Button
 from gui_form_nivel import FormNivel
 from gui_widget import Widget
-from Data_lvl_SQL import obtener_estado_nivel
+from Data_lvl_SQL import *
 from gui_form_menu_pausa import FormPausa
 from gui_form_menu_win import FormWin
 from gui_form_menu_lose import FormLose
@@ -18,12 +18,14 @@ class FormMenuNiveles(Form):
         self.boton2 = Button(master=self,x=20,y=220,w=750,h=180,image_background=PATH_RECURSOS + r"\background\Snow3.png",on_click=self.click_nivel,on_click_param=2)
         self.boton3 = Button(master=self,x=20,y=420,w=750,h=180,image_background=PATH_RECURSOS + r"\background\Cave0.png",on_click=self.click_nivel,on_click_param=3)
         self.boton4 = Button(master=self,x=20, y=670, w=120,h =50,image_background=None, on_click=self.retroceder, on_click_param="saves",text="atras", font_size= 50, font_color=COLOR_TEXTO_MENU) 
-        
-        self.lista_widget = [self.boton1,self.boton2,self.boton3,self.boton4]
+        self.title =  Widget(master=self, x = 1000, y = 20, w = 300, h = 100, text= "Jugador:", font_size=70, font_color=COLOR_TEXTO_MENU)
+        self.nombre = Widget(master=self, x = 1000, y = 130, w = 300, h = 70, text= obtener_nombre(self.save_file), font_size=50, font_color=COLOR_TEXTO_MENU)
+        self.delete = Button(master=self,x=1220 , y=670, w=260,h =50,image_background=None, on_click=self.borrar_data, on_click_param="main",text="Delete Data", font_size= 50, font_color=COLOR_TEXTO_MENU) 
+        self.lista_widget = [self.boton1,self.boton2,self.boton3,self.boton4, self.title, self.nombre, self.delete]
         self.data_levels(1, self.boton1)
         self.data_levels(2, self.boton2)
         self.data_levels(3, self.boton3)
-   
+            
 
 
     def data_levels(self, nivel, boton):
@@ -36,6 +38,13 @@ class FormMenuNiveles(Form):
     def retroceder(self, parametro):
         self.forms_dict.pop("levels")
         self.on_click_boton(parametro)
+
+
+    def borrar_data(self, parametro):
+        delete_data(self.save_file)
+        self.forms_dict.pop("levels")
+        self.forms_dict.pop("saves")
+        self.on_click_boton("main")
 
 
     def click_nivel(self, nro_lvl):
