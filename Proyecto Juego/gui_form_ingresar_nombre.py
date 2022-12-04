@@ -25,7 +25,12 @@ class FormName(Form):
 
 
     def guardar_nombre(self, parametro):
-        
+        if re.search("^ | $", self.input.text):
+            self.input.text = self.input.text.strip()
+
+        if re.search("^$",self.input.text):
+            self.input.text = "Anonimo"
+
         ingresar_nombre(self.save_file, self.input.text)
         self.forms_dict.pop("name")
         self.forms_dict["saves"].iniciar_save_file(self.save_file)
