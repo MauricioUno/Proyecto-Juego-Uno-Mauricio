@@ -1,12 +1,10 @@
 import pygame
 import sys
-from pygame.locals import *
 from gui_form import Form
 from gui_button import Button
 from aux_constantes import *
 from gui_widget import Widget
 from gui_form_menu_opciones import FormMenuOpciones
-from Data_lvl_SQL import crear_data_base_niveles
 from gui_form_menu_saves import FormSaves
 
 class FormMenuMain(Form):

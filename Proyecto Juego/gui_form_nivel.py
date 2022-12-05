@@ -6,7 +6,7 @@ from gui_widget import Widget
 from gui_progressbar import HealthBar
 
 
-from Data_lvl_SQL import obtener_datos_nivel
+from SQL_SAVES import obtener_data_nivel
 from class_plataforma import ListaPlataformas
 from class_trampa import ListaTrampas
 from class_portal import Portal
@@ -28,12 +28,12 @@ class FormNivel(Form):
         self.tiempo_score = data_nivel["score_tiempo"]
         self.cronometro = 0
         super().__init__(self.name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
-        self.plataformas = ListaPlataformas(data_nivel["plataformas"], master_surface, self.name)
-        self.trampas = ListaTrampas(data_nivel["trampas"], master_surface, self.name)
-        self.enemigos = ListaEnemigos(data_nivel["enemigos"], master_surface)
-        self.items = ListaItems(data_nivel["items"], master_surface, self.enemigos)
-        self.jugador = Jugador(data_nivel["pos_player"][0], data_nivel["pos_player"][1], master_surface, self)
-        self.portal = Portal(data_nivel["pos_portal"][0], data_nivel["pos_portal"][1], master_surface, self.name)
+        self.plataformas = ListaPlataformas(data_nivel["plataformas"], self, self.name)
+        self.trampas = ListaTrampas(data_nivel["trampas"], self, self.name)
+        self.enemigos = ListaEnemigos(data_nivel["enemigos"], self)
+        self.items = ListaItems(data_nivel["items"], self, self.enemigos)
+        self.jugador = Jugador(data_nivel["pos_player"][0], data_nivel["pos_player"][1], self)
+        self.portal = Portal(data_nivel["pos_portal"][0], data_nivel["pos_portal"][1], self, self.name)
 
         self.orb = Widget(master=self, x=10, y = 40, w=25, h=25,image_background=PATH_RECURSOS + r"\items\orb.png")
         self.ammo = Widget(master=self, x=50, y = 40, w=50, h=25,image_background=PATH_RECURSOS + r"\gui\ammo.png",text=" ",font_size=25,font_color=C_BLUE)
@@ -42,7 +42,7 @@ class FormNivel(Form):
         self.time = Widget(master=self, x=1390, y = 10, w=100, h=30,image_background=PATH_RECURSOS + r"\gui\time.png", text="{0}".format(self.tiempo),font_size=30, font_color=C_BLACK)
         self.lista_widget = [self.health_bar, self.orb, self.ammo, self.score, self.orb, self.ammo, self.time]
     
-        datos = obtener_datos_nivel(self.save_file, self.nro_nivel)
+        datos = obtener_data_nivel(self.save_file, self.nro_nivel)
         self.cargar_datos_jugador(datos[0], datos[1], datos[2], datos[3])
         
 

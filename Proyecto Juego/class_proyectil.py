@@ -48,11 +48,11 @@ class GrupoProyectiles:
     def __init__(self, master, screen) -> None:
         self.lista_disparos = []
         self.master = master
-        self.screen = screen
+        self.master_form = screen
 
 
     def agregar_disparo(self, pos_x, pos_y, velocidad, aux_x, aux_y, ancho, alto, animacion, damage):
-        disparo = Proyectil(animacion, pos_x, pos_y, -100, 1600, velocidad, aux_x, aux_y, ancho, alto, damage, self.master, self.screen)
+        disparo = Proyectil(animacion, pos_x, pos_y, -100, 1600, velocidad, aux_x, aux_y, ancho, alto, damage, self.master, self.master_form)
         self.lista_disparos.append(disparo)
 
     def actualizar_disparos(self, objetivos, plataformas):

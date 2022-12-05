@@ -111,7 +111,7 @@ class PlatMovExponencial(Plataforma):
 class ListaPlataformas:
     def __init__(self,lista_plataformas, screen, name) -> None:
         self.lista = []
-        self.screen = screen
+        self.master_form = screen
         self.name = name
 
         if "terreno" in lista_plataformas.keys():
@@ -134,7 +134,7 @@ class ListaPlataformas:
                 pos_x = dato["pos"][0]
                 for x in range(dato["cant"][0]):
                     tile = "{0}/{1}".format(self.name, dato["tipo"])
-                    plataforma = Plataforma(pos_x, pos_y, dato["dim"][0], dato["dim"][1], tile, True, self.screen)
+                    plataforma = Plataforma(pos_x, pos_y, dato["dim"][0], dato["dim"][1], tile, True, self.master_form)
                     self.lista.append(plataforma)
                     pos_x += dato["distancia"][0]
                 pos_y += dato["distancia"][1]
@@ -143,14 +143,14 @@ class ListaPlataformas:
     def agregar_plataforma_mov(self, lista_plataformas, move):
         for dato in lista_plataformas:
             tile = "{0}/{1}".format(self.name, dato["tipo"])
-            plataforma = PlatMov(dato["pos"][0], dato["pos"][1], dato["dim"][0], dato["dim"][1], tile, dato["speed"], dato["route"], move, dato["retorno"],self.screen)
+            plataforma = PlatMov(dato["pos"][0], dato["pos"][1], dato["dim"][0], dato["dim"][1], tile, dato["speed"], dato["route"], move, dato["retorno"],self.master_form)
             self.lista.append(plataforma)
 
     
     def agregar_plataforma_mov_circular(self, lista_plataformas):
         for dato in lista_plataformas:
             tile = "{0}/{1}".format(self.name, dato["tipo"])
-            plataforma = PlatMovExponencial(dato["pos"][0], dato["pos"][1], dato["dim"][0], dato["dim"][1], tile, dato["speed"], dato["move"][0], dato["move"][1], self.screen)
+            plataforma = PlatMovExponencial(dato["pos"][0], dato["pos"][1], dato["dim"][0], dato["dim"][1], tile, dato["speed"], dato["move"][0], dato["move"][1], self.master_form)
             self.lista.append(plataforma)
 
     

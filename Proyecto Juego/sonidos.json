@@ -20,10 +20,6 @@
             "name": "dmg"
         },
 
-        {
-            "file": "sound_enemy_death.wav",
-            "name": "death_2"
-        },
 
         {
             "file": "sound_shoot.wav",

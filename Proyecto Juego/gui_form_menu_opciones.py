@@ -4,7 +4,7 @@ from aux_constantes import *
 from gui_form import Form
 from gui_form_menu_score import FormScore
 from gui_button import Button
-from Practica_SQL import crear_data_base_ranking
+from SQL_RANK import crear_data_base_ranking
 from gui_form_menu_sonido import FormSonido
 
 

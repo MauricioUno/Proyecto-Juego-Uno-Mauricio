@@ -33,7 +33,7 @@ class Batterfly(RandomGhost):
         if self.timer_respawn > 1000:
             self.timer_respawn = 0
             self.acumulador = 0
-            self.__init__(self.screen)
+            self.__init__(self.master_form)
     
 
     def verificar_limite_x(self):

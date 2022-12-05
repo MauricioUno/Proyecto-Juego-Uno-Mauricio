@@ -1,9 +1,8 @@
 from gui_form import Form
 from gui_button import Button
 from aux_constantes import *
-from Data_lvl_SQL import * 
+from SQL_SAVES import * 
 from gui_form_menu_nivel import FormMenuNiveles
-from Data_lvl_SQL import *
 from gui_form_ingresar_nombre import FormName
 
 class FormSaves(Form):
@@ -19,7 +18,6 @@ class FormSaves(Form):
 
 
     def cargar_datos(self, archivo):
-        crear_data_base_niveles(archivo)
         if obtener_nombre(archivo) == None:
             FormName(save_file = archivo, name="name", master_surface=self.master_surface, x = 550, y = 180, w = 400, h=350, imagen_background= PATH_RECURSOS + r"\gui\TablaH.png")
             self.on_click_boton("name")

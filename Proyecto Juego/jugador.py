@@ -4,9 +4,8 @@ from class_proyectil import GrupoProyectiles
 import pygame
 
 class Jugador:
-    def __init__(self, pos_x, pos_y, screen, form) -> None:
+    def __init__(self, pos_x, pos_y, form) -> None:
         self.form = form
-        self.screen = screen
         self.direccion = DERECHA
         self.stay = {}
         self.stay[DERECHA] = Auxiliar.getSurfaceFromSpriteSheet(PATH_RECURSOS + "\players\stink\idle_plus.png",26,2)[:51]
@@ -59,7 +58,7 @@ class Jugador:
         self.speed_shoot[IZQUIERDA] = -20
         self.orb = Auxiliar.getSurfaceFromSpriteSheet(PATH_RECURSOS + r"\players\stink\disparo_animacion.png",16,2)[:31]
         self.municion = 10
-        self.proyectiles = GrupoProyectiles(self, self.screen)
+        self.proyectiles = GrupoProyectiles(self, self.form)
         self.timer_disparo = 0
         self.shoot_allowed = True
 
@@ -159,7 +158,8 @@ class Jugador:
 
     def disparar(self):
         if self.municion > 0 and not self.golpeado and self.shoot_allowed:
-            self.shoot_allowed = False  
+            self.shoot_allowed = False
+            self.form.play_efecto_sonido("shoot")
             self.proyectiles.agregar_disparo(self.rect.centerx, self.rect.centery, self.speed_shoot[self.direccion], 0, 0, 30, 30, self.orb, 25)
             self.municion -= 1
 
@@ -173,6 +173,7 @@ class Jugador:
 
     def recibir_golpe(self, atacante):
         if not self.invulnerable:
+            self.form.play_efecto_sonido("dmg")
             self.modificar_vida(-atacante.damage)
             self.golpeado = True
             self.invulnerable = True

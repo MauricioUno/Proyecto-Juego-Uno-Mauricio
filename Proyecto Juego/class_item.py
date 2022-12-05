@@ -15,6 +15,7 @@ class Item(Imagen):
         for objetivo in objetivos:
             if self.rect.colliderect(objetivo.rect_hitbox):
                 self.activo = False
+                self.master_form.play_efecto_sonido("collect")
                 self.aplicar_efecto(objetivo, enemigos)
     
 
@@ -25,7 +26,7 @@ class Item(Imagen):
 
         elif re.search("spawn", self.efecto, re.IGNORECASE):
             objetivo.score += 1000
-            enemigos.agregar_batterfly(3, self.screen)
+            enemigos.agregar_batterfly(3, self.master_form)
 
         elif re.search("ammo", self.efecto, re.IGNORECASE):
             objetivo.municion += 5
@@ -44,14 +45,14 @@ class Item(Imagen):
 class ListaItems:
     def __init__(self, lista_items, screen, enemigos) -> None:
         self.lista = []
-        self.screen = screen
+        self.master_form = screen
         self.lista_enemigos = enemigos
         self.agregar_item(lista_items)
 
 
     def agregar_item(self, lista_items):
         for item in lista_items:
-            aux_item = Item(item["item"], item["dimension"][0], item["dimension"][1], item["coordenadas"][0], item["coordenadas"][1],item["efecto"], self.screen)
+            aux_item = Item(item["item"], item["dimension"][0], item["dimension"][1], item["coordenadas"][0], item["coordenadas"][1],item["efecto"], self.master_form)
             self.lista.append(aux_item)
 
     def actualizar(self, delta_ms, objetivos):

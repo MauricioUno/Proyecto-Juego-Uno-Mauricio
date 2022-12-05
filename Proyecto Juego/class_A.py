@@ -4,7 +4,7 @@ import pygame
 
 class ObjetoAnimado:
     def __init__(self, animacion, pos_x, pos_y, screen):
-        self.screen = screen
+        self.master_form = screen
         self.animacion = animacion
         self.frame = 0
         self.imagen = self.animacion[self.frame]
@@ -20,7 +20,7 @@ class ObjetoAnimado:
 
     def draw(self):
         self.imagen = self.animacion[self.frame]
-        self.screen.blit(self.imagen,self.rect)
+        self.master_form.surface.blit(self.imagen,self.rect)
 
 
 
@@ -29,11 +29,11 @@ class Imagen:
         self.imagen = pygame.image.load(PATH_RECURSOS + path_imagen).convert_alpha()
         self.imagen = pygame.transform.scale(self.imagen, (ancho, alto)).convert_alpha()
         self.rect = self.imagen.get_rect(x = pos_x, y = pos_y)
-        self.screen = screen
+        self.master_form = screen
 
     
     def draw(self):
-        self.screen.blit(self.imagen, self.rect)
+        self.master_form.surface.blit(self.imagen, self.rect)
 
 
 

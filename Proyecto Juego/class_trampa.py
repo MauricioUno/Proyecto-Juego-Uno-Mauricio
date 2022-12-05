@@ -82,7 +82,7 @@ class TrampaMovil(Trampa):
 class ListaTrampas():
     def __init__(self, lista_trampas, screen, name) -> None:
         self.lista = []
-        self.screen = screen
+        self.master_form = screen
         self.name = name
 
         if "estatica" in lista_trampas.keys():
@@ -99,13 +99,13 @@ class ListaTrampas():
 
     def agregar_trampa(self, lista_trampas):
         for trap in lista_trampas:
-            trampa = Trampa(trap["pos"][0], trap["pos"][1], trap["dim"][0], trap["dim"][1], trap["tipo"], self.screen)
+            trampa = Trampa(trap["pos"][0], trap["pos"][1], trap["dim"][0], trap["dim"][1], trap["tipo"], self.master_form)
             self.lista.append(trampa)
                     
 
     def agregar_trampa_movil(self, lista_trampas, move):
         for trampa in lista_trampas:
-            trap = TrampaMovil(trampa["pos"][0], trampa["pos"][1], trampa["dim"][0], trampa["dim"][1], trampa["retorno"], trampa["speed"], move, trampa["route"], trampa["tipo"],self.screen)
+            trap = TrampaMovil(trampa["pos"][0], trampa["pos"][1], trampa["dim"][0], trampa["dim"][1], trampa["retorno"], trampa["speed"], move, trampa["route"], trampa["tipo"],self.master_form)
             self.lista.append(trap)
 
 

@@ -5,14 +5,14 @@ from aux_constantes import *
 
 
 class ListaEnemigos:
-    def __init__(self, lista_enemigos, screen) -> None:
+    def __init__(self, lista_enemigos, master_form) -> None:
         self.lista = []
 
         if "ix" in lista_enemigos.keys():
-            self.agregar_spirit_ix(lista_enemigos["ix"], screen)
+            self.agregar_spirit_ix(lista_enemigos["ix"], master_form)
 
         if "groodle" in lista_enemigos.keys():
-            self.agregar_spirit_groodle(lista_enemigos["groodle"], screen)
+            self.agregar_spirit_groodle(lista_enemigos["groodle"], master_form)
 
         
 
@@ -24,20 +24,20 @@ class ListaEnemigos:
                 self.lista.remove(enemigo)    
 
 
-    def agregar_spirit_groodle(self, lista_groodle, screen):
+    def agregar_spirit_groodle(self, lista_groodle, master_form):
         for groodle in lista_groodle:
-            enemigo_groodle = SpiritGroodle(groodle["coordenadas"][0], groodle["coordenadas"][1], screen)
+            enemigo_groodle = SpiritGroodle(groodle["coordenadas"][0], groodle["coordenadas"][1], master_form)
             self.lista.append(enemigo_groodle)
 
 
-    def agregar_spirit_ix(self, lista_ix, screen):
+    def agregar_spirit_ix(self, lista_ix, master_form):
         for ix in lista_ix:
-            enemigo_ix = SpiritIx(ix["coordenadas"][0], ix["coordenadas"][1], screen)
+            enemigo_ix = SpiritIx(ix["coordenadas"][0], ix["coordenadas"][1], master_form)
             self.lista.append(enemigo_ix)
 
 
-    def agregar_batterfly(self, cantidad, screen):
+    def agregar_batterfly(self, cantidad, master_form):
         for i in range(cantidad):
-            batterfly = Batterfly(screen)
+            batterfly = Batterfly(master_form)
             self.lista.append(batterfly)
         

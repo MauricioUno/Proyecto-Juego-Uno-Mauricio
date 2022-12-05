@@ -4,7 +4,7 @@ from gui_button import *
 from gui_textbox import TextBox
 from gui_widget import Widget
 from gui_button import Button
-from Data_lvl_SQL import ingresar_nombre
+from SQL_SAVES import iniciar_partida
 import re
 
 class FormName(Form):
@@ -31,6 +31,6 @@ class FormName(Form):
         if re.search("^$",self.input.text):
             self.input.text = "Anonimo"
 
-        ingresar_nombre(self.save_file, self.input.text)
+        iniciar_partida(self.save_file, self.input.text)
         self.forms_dict.pop("name")
         self.forms_dict["saves"].iniciar_save_file(self.save_file)

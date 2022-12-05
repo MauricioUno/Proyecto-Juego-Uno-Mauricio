@@ -5,7 +5,7 @@ from gui_form import Form
 from gui_button import Button
 from gui_form_nivel import FormNivel
 from gui_widget import Widget
-from Data_lvl_SQL import *
+from SQL_SAVES import *
 from gui_form_menu_pausa import FormPausa
 from gui_form_menu_win import FormWin
 from gui_form_menu_lose import FormLose
@@ -42,7 +42,7 @@ class FormMenuNiveles(Form):
 
     def start_level(self, nro_lvl):
         FormNivel(save_file = self.save_file,nivel = nro_lvl, master_surface = self.master_surface)
-        FormPausa(nro_lvl=nro_lvl, name="pause", master_surface=self.master_surface, x = 600, y=180, w=300, h=350, imagen_background= PATH_RECURSOS + r"\gui\TablaV.png")
+        FormPausa(save_file = self.save_file, nro_lvl=nro_lvl, name="pause", master_surface=self.master_surface, x = 600, y=180, w=300, h=350, imagen_background= PATH_RECURSOS + r"\gui\TablaV.png")
         FormWin(save_file= self.save_file,nro_lvl= nro_lvl, name="win", master_surface=self.master_surface, x = 375, y = 135, w = 750, h =450, imagen_background= PATH_RECURSOS + r"\gui\TablaH.png")
         FormLose(save_file = self.save_file,nro_lvl= nro_lvl,name="lose", master_surface=self.master_surface, x = 550, y = 180, w = 400, h=350, imagen_background= PATH_RECURSOS + r"\gui\TablaH.png")
         self.on_click_boton("level_{0}".format(nro_lvl))

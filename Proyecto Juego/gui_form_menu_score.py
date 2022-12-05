@@ -2,7 +2,7 @@ from aux_constantes import *
 from gui_form import *
 from gui_button import *
 from gui_widget import Widget
-from Practica_SQL import obtener_filas
+from SQL_RANK import obtener_filas
 
 
 class FormScore(Form):

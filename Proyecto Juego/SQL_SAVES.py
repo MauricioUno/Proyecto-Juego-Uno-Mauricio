@@ -1,6 +1,6 @@
 import sqlite3
 
-def crear_data_base_niveles(archivo):
+def iniciar_partida(archivo, name):
     with sqlite3.connect("{0}.db".format(archivo)) as conexion:
         try:
             sentencia = ''' create table Levels
@@ -15,13 +15,17 @@ def crear_data_base_niveles(archivo):
                 '''
             conexion.execute(sentencia)
             conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (1, 1, 100, 10, 0, 0))
-            conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (2, 0, 100, 10, 0, 0))
-            conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (3, 0, 100, 10, 0, 0))
+            conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (2, 0, 0, 0, 0, 0))
+            conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (3, 0, 0, 0, 0, 0))
             conexion.execute("create table Nombre (Name text)")
-        except sqlite3.OperationalError:
-            print("La tabla niveles ya existe")
+            conexion.execute(f"insert into Nombre values ('{name}')")
+            conexion.commit()
+        except:
+            print("ERROR AL CREAR EL SAVE")
 
-def actualizar_datos_nivel(archivo, nivel, health, ammo, score, cronometro, unlock):
+
+
+def actualizar_data_nivel(archivo, nivel, health, ammo, score, cronometro, unlock):
     with sqlite3.connect("{0}.db".format(archivo)) as conexion:
         try:
             sentencia = "UPDATE Levels SET health=?, ammo=?, score=?, cronometro=?, unlock=?  WHERE Nivel=?"
@@ -30,7 +34,7 @@ def actualizar_datos_nivel(archivo, nivel, health, ammo, score, cronometro, unlo
             print("Error al actualizar datos del nivel")
 
 
-def obtener_datos_nivel(archivo, nivel):
+def obtener_data_nivel(archivo, nivel):
     with sqlite3.connect("{0}.db".format(archivo)) as conexion:
         try:
             sentencia = "SELECT  `health`, `ammo`, `score`, `cronometro` FROM Levels WHERE Nivel=?"
@@ -52,29 +56,17 @@ def obtener_estado_nivel(archivo, nivel):
             print("Error al obtener datos del nivel")
 
 
-def ingresar_nombre(archivo, name):
-    with sqlite3.connect("{0}.db".format(archivo)) as conexion:
-            conexion.execute(f"insert into Nombre values ('{name}')")
-            conexion.commit()
-
-
 def obtener_nombre(archivo):
     with sqlite3.connect("{0}.db".format(archivo)) as conexion:
         try:
             cursor = conexion.execute("SELECT * FROM Nombre")
             nombre = cursor.fetchall()[0][0]
-            conexion.commit()
             return nombre
         except:
-            print("Error al obtener nombre de la DB")
             return None
-
-
+            
 
 def delete_data(archivo):
     with sqlite3.connect("{0}.db".format(archivo)) as conexion:
-        conexion.execute("DELETE FROM Levels")
-        conexion.execute("DELETE FROM Nombre")
-        conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (1, 1, 100, 10, 0, 0))
-        conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (2, 0, 100, 10, 0, 0))
-        conexion.execute("insert into Levels values (?, ?, ?, ?, ?, ?)", (3, 0, 100, 10, 0, 0))
+        conexion.execute("DROP TABLE Levels")
+        conexion.execute("DROP TABLE Nombre")
