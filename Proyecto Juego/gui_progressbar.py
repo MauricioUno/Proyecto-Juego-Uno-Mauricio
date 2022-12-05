@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from gui_widget import Widget
 from aux_constantes import *
+from math import ceil
 
 
 class HealthBar(Widget):
@@ -31,11 +32,17 @@ class ElementBar(Widget):
         self.surface_element = pygame.image.load(element)
         self.surface_element = pygame.transform.scale(self.surface_element,(w/value_max, h)).convert_alpha()
 
-        self.value = value
+        #print(value)
+        self.value = ceil(value)
         self.value_max= value_max
         
     def render(self):
         super().render()
+        if self.value < 0:
+            self.value = 0
+        elif self.value > self.value_max:
+            self.value = self.value_max
+            
         for x in range(self.value):
             self.slave_surface.blit(self.surface_element, (x*self.w/self.value_max, 0))
 

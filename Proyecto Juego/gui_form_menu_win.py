@@ -17,7 +17,7 @@ class FormWin(Form):
         self.nro_lvl = nro_lvl
         self.clave_lvl = "level_{0}".format(nro_lvl)
         self.win = Widget(master=self, x = w/2 -150, y = 5, w = 300, h = 70, text= "Ganaste!", font_size=70, font_color=COLOR_TEXTO_MENU)
-        self.home = Button(master=self, x= w/2 - 33 ,y = 370, w = 50, h= 50, image_background= PATH_RECURSOS + r"\gui\menu.png", on_click= self.menu, on_click_param= "main")
+        self.home = Button(master=self, x= w/2 - 33 ,y = 370, w = 50, h= 50, image_background= PATH_RECURSOS + r"\gui\menu.png", on_click= self.volver_a_main)
         self.reset = Button(master=self, x= w/2 - 190 ,y = 370, w = 50, h= 50, image_background= PATH_RECURSOS + r"\gui\restart.png", on_click= self.replay, on_click_param= self.clave_lvl)
         self.next = Button(master=self, x= w/2 + 133 ,y = 370, w = 50, h= 50, image_background= PATH_RECURSOS + r"\gui\next.png", on_click= self.next_lvl, on_click_param= None)
         self.clock = Widget (master=self, x= w/4 -100, y = h/4-20, w=40, h=40, image_background=PATH_RECURSOS + r"\gui\win_time.png")
@@ -33,29 +33,22 @@ class FormWin(Form):
 
 
     def next_lvl(self, nada):
-        next_lvl = self.nro_lvl + 1
-        if next_lvl < ULTIMO_NIVEL + 1:
-            self.forms_dict.pop(self.clave_lvl)
-            self.forms_dict.pop("pause")
-            self.forms_dict.pop("win")
-            self.forms_dict.pop("lose")
-            self.forms_dict["levels"].start_level(next_lvl)
+        if self.nro_lvl < ULTIMO_NIVEL:
+            self.eliminar_formularios([self.clave_lvl, "pause", "win", "lose"])
+            self.forms_dict["levels"].start_level(self.nro_lvl + 1)
 
 
     def replay(self, nada):
         self.forms_dict.pop(self.clave_lvl)
         FormNivel(save_file = self.save_file, nivel = self.nro_lvl, master_surface = self.master_surface)
-        self.set_active(self.clave_lvl)
+        self.on_click_boton(self.clave_lvl)
 
 
-    def menu(self, parametro):
-        self.forms_dict.pop(self.clave_lvl)
-        self.forms_dict.pop("levels")
-        self.forms_dict.pop("pause")
-        self.forms_dict.pop("win")
-        self.forms_dict.pop("lose")
-        self.set_active(parametro)
-
+    def volver_a_main(self, parametro):
+        self.eliminar_formularios([self.clave_lvl, "levels", "pause", "win", "lose"])
+        self.activar_musica("music_main")
+        self.on_click_boton("main")
+        
 
     def puntaje_obtenido(self, vida = 0, scoreVida = 0, tiempo = 0, scoreTiempo = 0, scorePlayer = 0, municion = 0, reloj = 0):
         self.text_clock.text = "{0} x {1} = {2}".format(tiempo, scoreTiempo, tiempo*scoreTiempo)

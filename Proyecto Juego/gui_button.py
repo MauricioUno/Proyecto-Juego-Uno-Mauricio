@@ -5,12 +5,15 @@ from aux_constantes import *
 
 
 class Button(Widget):
-    def __init__(self,master,x=0,y=0,w=200,h=50,color_background=None,color_border=None,image_background=None,text=None,font_size=20,font_color=C_BLACK,on_click=None,on_click_param=None):
+    def __init__(self,master,x=0,y=0,w=200,h=50,color_background=None,color_border=None,image_background=None,text=None,font_size=20,font_color=C_BLACK,on_click=None,on_click_param=None, active = True):
         super().__init__(master,x,y,w,h,color_background,color_border,image_background,text,font_size,font_color)
         self.on_click = on_click
         self.on_click_param = on_click_param
         self.state = M_STATE_NORMAL
-        self.active = True
+        self.active = active
+        if not self.active:
+            self.image_background = pygame.image.load(PATH_RECURSOS + r"\gui\lock.png").convert_alpha()
+            self.image_background = pygame.transform.scale(self.image_background,(self.w, self.h)).convert_alpha()
         
     def render(self):
         super().render()

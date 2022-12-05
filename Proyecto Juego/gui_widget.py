@@ -16,15 +16,24 @@ class Widget:
         
         self.image_background = image_background
         if self.image_background != None:
-            self.image_background = pygame.image.load(image_background).convert_alpha()
-            self.image_background = pygame.transform.scale(self.image_background,(w, h)).convert_alpha()
+            try:
+                self.image_background = pygame.image.load(image_background).convert_alpha()
+                self.image_background = pygame.transform.scale(self.image_background,(w, h)).convert_alpha()
+            except:
+                self.image_background = None
+                print("Error al cargar la imagen {0}".format(image_background))
 
 
         self.text = text
         if(self.text != None):
             self.text = text
-            self.font_sys = pygame.font.Font(PATH_RECURSOS + r"\Auxiliar\JingleBalonsGTDemo.ttf", font_size)
             self.font_color = font_color
+            try:
+                self.font_sys = pygame.font.Font(PATH_RECURSOS + r"\Auxiliar\JingleBalonsGTDemo.ttf", font_size)
+            except:
+                self.text = None
+                print("Error: No se encuentra el archivo JingleBalonsGTDemo.ttf")
+            
             
         self.slave_surface = pygame.Surface((self.w,self.h), pygame.SRCALPHA)
         self.slave_rect = self.slave_surface.get_rect(x = self.x, y = self.y)

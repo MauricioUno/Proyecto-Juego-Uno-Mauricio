@@ -9,15 +9,12 @@ class FormPausa(Form):
         self.clave_lvl = "level_{0}".format(nro_lvl)
         self.reanudar = Button(master=self, x = w/2-110 , y = h/4, w = 220, h = 50,on_click=self.on_click_boton, on_click_param=self.clave_lvl ,text="Reanudar", font_size= 50, font_color=COLOR_TEXTO_MENU)
         self.sonido = Button(master=self, x = w/2-75 , y = h/2, w = 150, h = 50,on_click=print, on_click_param="sound",text="Sonido",font_size= 50, font_color=COLOR_TEXTO_MENU)
-        self.salir = Button(master=self, x = w/2-60 , y = h/2 + h/4, w = 120, h = 50,on_click=self.boton_salir, on_click_param="main",text="Salir",font_size= 50, font_color=COLOR_TEXTO_MENU)
+        self.salir = Button(master=self, x = w/2-60 , y = h/2 + h/4, w = 120, h = 50,on_click=self.volver_a_main,text="Salir",font_size= 50, font_color=COLOR_TEXTO_MENU)
         self.lista_widget = [self.reanudar, self.sonido, self.salir]
         
 
 
-    def boton_salir(self, parametro):
-        self.forms_dict.pop(self.clave_lvl)
-        self.forms_dict.pop("levels")
-        self.forms_dict.pop("pause")
-        self.forms_dict.pop("win")
-        self.forms_dict.pop("lose")
-        self.set_active(parametro)
+    def volver_a_main(self, parametro):
+        self.eliminar_formularios([self.clave_lvl, "levels", "pause", "win", "lose"])
+        self.activar_musica("music_main")
+        self.on_click_boton("main")

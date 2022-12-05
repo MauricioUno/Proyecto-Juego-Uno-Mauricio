@@ -23,12 +23,9 @@ class FormLose(Form):
     def replay(self, nada):
         self.forms_dict.pop(self.clave_lvl)
         FormNivel(save_file = self.save_file, nivel = self.nro_lvl, master_surface = self.master_surface)
-        self.set_active(self.clave_lvl)
+        self.on_click_boton(self.clave_lvl)
 
     def menu(self, parametro):
-        self.forms_dict.pop(self.clave_lvl)
-        self.forms_dict.pop("levels")
-        self.forms_dict.pop("pause")
-        self.forms_dict.pop("win")
-        self.forms_dict.pop("lose")
-        self.set_active(parametro)
+        self.eliminar_formularios([self.clave_lvl, "levels", "pause", "win", "lose"])
+        self.activar_musica("music_main")
+        self.on_click_boton("main")

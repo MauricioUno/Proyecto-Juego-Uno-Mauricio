@@ -41,7 +41,7 @@ class FormNivel(Form):
         self.health_bar = HealthBar(master=self,x=10,y=10,w=350,h=20,color_background=M_BRIGHT_HOVER,color_border=C_WHITE, value =self.jugador.vida, value_max = self.jugador.vida)
         self.time = Widget(master=self, x=1390, y = 10, w=100, h=30,image_background=PATH_RECURSOS + r"\gui\time.png", text="{0}".format(self.tiempo),font_size=30, font_color=C_BLACK)
         self.lista_widget = [self.health_bar, self.orb, self.ammo, self.score, self.orb, self.ammo, self.time]
-
+    
         datos = obtener_datos_nivel(self.save_file, self.nro_nivel)
         self.cargar_datos_jugador(datos[0], datos[1], datos[2], datos[3])
         
@@ -73,9 +73,11 @@ class FormNivel(Form):
 
         if self.jugador.lose or self.tiempo < 0:
             self.set_active("lose")
+            self.play_efecto_sonido("death")
         elif self.jugador.win:
             self.forms_dict["win"].puntaje_obtenido(self.jugador.vida, self.health_score, self.tiempo, self.tiempo_score, self.jugador.score, self.jugador.municion, self.cronometro)
             self.set_active("win")
+            self.play_efecto_sonido("win")
 
         
 

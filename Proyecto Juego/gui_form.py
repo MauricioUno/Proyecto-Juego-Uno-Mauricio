@@ -3,6 +3,7 @@ from aux_constantes import *
 
 class Form():
     forms_dict = {}
+    sounds_dict = {}
     def __init__(self,name,master_surface,x,y,w,h,color_background, imagen_background, color_border,active):
         self.forms_dict[name] = self
         self.master_surface = master_surface
@@ -18,8 +19,12 @@ class Form():
         self.active = active
         
         if imagen_background != None:
-            self.image_background  = pygame.image.load(imagen_background).convert_alpha()
-            self.image_background  = pygame.transform.scale(self.image_background, (self.w, self.h)).convert_alpha()
+            try:
+                self.image_background  = pygame.image.load(imagen_background).convert_alpha()
+                self.image_background  = pygame.transform.scale(self.image_background, (self.w, self.h)).convert_alpha()
+            except:
+                self.image_background = None
+                print("Imagen background para el formulario no encontrada")
         else:
             self.image_background = None
 
@@ -27,7 +32,47 @@ class Form():
         
 
     def on_click_boton(self, parametro):
+        self.play_efecto_sonido("click")
         self.set_active(parametro)
+    
+
+    def crear_efectos_de_sonido(self, lista_paths):
+        for path in lista_paths:
+            try:
+                self.sounds_dict[path["name"]] = pygame.mixer.Sound(PATH_RECURSOS + "/auxiliar/{0}".format(path["file"]))
+                self.sounds_dict[path["name"]].set_volume(0.25)
+            except:
+                print("Archivo de sonido {0} no encontrado".format(path["file"]))
+
+
+    def ajustar_volumen_efectos_de_sonido(self, value):
+        for sound_effect in self.sounds_dict.values():
+            try:
+                sound_effect.set_volume(value)
+            except:
+                print("Error al ajustar sonido!")
+
+    
+    def play_efecto_sonido(self, key):
+        try:
+            self.sounds_dict[key].play()
+        except:
+            print("No se puede ejecutar el sonido")
+
+    def activar_musica(self, music):
+        try:
+            pygame.mixer.music.load(PATH_RECURSOS + "/auxiliar/{0}.wav".format(music))
+            pygame.mixer.music.play(-1)
+        except:
+            print("Archivo WAV no encontrado")
+
+    
+    def eliminar_formularios(self, lista_claves):
+        for clave in lista_claves:
+            try:
+                self.forms_dict.pop(clave)
+            except:
+                print("La clave no existe")
 
 
     def set_active(self,name):

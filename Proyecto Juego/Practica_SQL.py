@@ -28,7 +28,7 @@ def insertar_fila(name, score, time):
 def obtener_filas():
     with sqlite3.connect("Ranking.db") as conexion:
         try:
-            cursor=conexion.execute("SELECT `Player`, `Score`, `Time` FROM ranking ORDER BY `Score` DESC LIMIT 5")
+            cursor=conexion.execute("SELECT `Player`, `Score`, `Time` FROM ranking ORDER BY `Score` DESC, `Time` ASC LIMIT 5")
             datos = cursor.fetchall()
             return datos
         except:

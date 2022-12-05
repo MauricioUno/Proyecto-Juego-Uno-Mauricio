@@ -47,7 +47,7 @@ def obtener_estado_nivel(archivo, nivel):
             sentencia = "SELECT `unlock` FROM Levels WHERE Nivel=?"
             cursor = conexion.execute(sentencia,(nivel,))
             datos = cursor.fetchall()
-            return datos[0]
+            return datos[0][0]
         except:
             print("Error al obtener datos del nivel")
 
