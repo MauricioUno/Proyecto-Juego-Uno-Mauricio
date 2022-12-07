@@ -1,4 +1,6 @@
 import json
+import pygame
+import sys
 
 def importar_lista(direccion: str, key):
     '''
@@ -10,7 +12,14 @@ def importar_lista(direccion: str, key):
     Retorna:
     - La lista dentro del diccionario
     '''
-    with open(direccion, "r") as archivo:
-        diccionario = json.load(archivo)
+    
+    try:
+        with open(direccion, "r") as archivo:
+            diccionario = json.load(archivo)
+            return diccionario[key]
+    except:
+        print("ERROR! ARCHIVO JSON NO ENCONTRADO!")
+        pygame.quit()
+        sys.exit() 
 
-    return diccionario[key]
+    

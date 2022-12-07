@@ -54,8 +54,8 @@ class Jugador:
         self.move_allowed[IZQUIERDA] = True
 
         self.speed_shoot = {}
-        self.speed_shoot[DERECHA] = 20
-        self.speed_shoot[IZQUIERDA] = -20
+        self.speed_shoot[DERECHA] = 25
+        self.speed_shoot[IZQUIERDA] = -25
         self.orb = Auxiliar.getSurfaceFromSpriteSheet(PATH_RECURSOS + r"\players\stink\disparo_animacion.png",16,2)[:31]
         self.municion = 10
         self.proyectiles = GrupoProyectiles(self, self.form)

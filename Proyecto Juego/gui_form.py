@@ -29,11 +29,33 @@ class Form():
             self.image_background = None
 
         self.lista_widget = []
-        
+
 
     def on_click_boton(self, parametro):
         self.play_efecto_sonido("click")
         self.set_active(parametro)
+
+
+    def eliminar_formularios(self, lista_claves):
+        for clave in lista_claves:
+            try:
+                self.forms_dict.pop(clave)
+            except:
+                print("La clave no existe")
+
+
+    def set_active(self,name):
+        for aux_form in self.forms_dict.values():
+            aux_form.active = False
+        self.forms_dict[name].active = True
+
+
+    def update_form(self, lista_eventos, delta_ms, segundo, teclas_presionadas):
+        for aux_form in self.forms_dict.values():
+            if aux_form.active:
+                aux_form.update(lista_eventos, delta_ms, segundo)
+                aux_form.draw(lista_eventos, delta_ms, teclas_presionadas)
+                break
     
 
     def crear_efectos_de_sonido(self, lista_paths):
@@ -57,7 +79,8 @@ class Form():
         try:
             self.sounds_dict[key].play()
         except:
-            print("No se puede ejecutar el sonido")
+            print("No se puede ejecutar el sonido, key no valida")
+
 
     def activar_musica(self, music):
         try:
@@ -65,29 +88,6 @@ class Form():
             pygame.mixer.music.play(-1)
         except:
             print("Archivo WAV no encontrado")
-
-    
-    def eliminar_formularios(self, lista_claves):
-        for clave in lista_claves:
-            try:
-                self.forms_dict.pop(clave)
-            except:
-                print("La clave no existe")
-
-
-    def set_active(self,name):
-        for aux_form in self.forms_dict.values():
-            aux_form.active = False
-        self.forms_dict[name].active = True
-
-
-    def update_form(self, lista_eventos, delta_ms, segundo, teclas_presionadas):
-        for aux_form in self.forms_dict.values():
-            if aux_form.active:
-                aux_form.update(lista_eventos, delta_ms, segundo)
-                aux_form.draw(lista_eventos, delta_ms, teclas_presionadas)
-                break
-
     
 
     def render(self):

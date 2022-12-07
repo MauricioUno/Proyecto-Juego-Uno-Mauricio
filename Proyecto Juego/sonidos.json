@@ -1,31 +1,25 @@
 {
-    "sounds":[
+    "sounds": [
         {
             "file": "sound_click.wav",
             "name": "click"
         },
-
         {
             "file": "sound_collect.wav",
             "name": "collect"
         },
-
         {
             "file": "sound_death.wav",
             "name": "death"
         },
-
         {
             "file": "sound_dmg.wav",
             "name": "dmg"
         },
-
-
         {
             "file": "sound_shoot.wav",
             "name": "shoot"
         },
-
         {
             "file": "sound_win.wav",
             "name": "win"

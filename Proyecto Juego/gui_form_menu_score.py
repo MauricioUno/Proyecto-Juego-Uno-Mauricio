@@ -2,8 +2,7 @@ from aux_constantes import *
 from gui_form import *
 from gui_button import *
 from gui_widget import Widget
-from SQL_RANK import obtener_filas
-
+from manager_data import *
 
 class FormScore(Form):
     def __init__(self, name, master_surface, x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background= None, imagen_background = None, color_border= None,active=False):
@@ -18,7 +17,7 @@ class FormScore(Form):
 
 
     def crear_tabla(self):
-        lista = obtener_filas()
+        lista = cargar_scores()
         pos_y = 200
         nro = 1
         for tupla in lista:

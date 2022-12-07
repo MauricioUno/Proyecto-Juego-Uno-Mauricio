@@ -5,6 +5,12 @@ Version en desarrollo de GLITCH
 * Video: https://drive.google.com/file/d/1YhHOpuzbmBrcDSRAyZ6TOOyOCNIKfCNj/view?usp=share_link
 
 * Importante:
+    - Unificar todos los datos en un solo archivo .db (HECHO!)
+    - Documentacion de las funciones
+    - Investigar distintos formatos de sonido para pygame
+    - Implementar un README cheto
+    - Grabar un video de la version final de juego (2-3 min)
+    - Tutorial/Explicacion de los controles del juego mediante imagenes y descripcion (HECHO)
     - No hay continuidad en la partida del jugador (HECHO!)
     - El nivel 3 no esta disponible (HECHO)
     - No se guarda el score del jugador (HECHO)
@@ -12,7 +18,7 @@ Version en desarrollo de GLITCH
     - No hay trampas (HECHO)
     - Las balas no colisionan con las paredes (HECHO)
     - Agregar gravedad y colision a los enemigos que la requieran (HECHO)
-    - No hay sonido (PENDIENTE)!
+    - No hay sonido (HECHO)
 
 
 * Pendiente:

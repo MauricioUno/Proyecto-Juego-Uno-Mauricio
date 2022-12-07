@@ -20,11 +20,11 @@ class FormMenuMain(Form):
 
 
     def start(self, parametro):
-        FormSaves(name="saves", master_surface= self.master_surface, imagen_background= PATH_RECURSOS + r"\background\forest4.png")
+        FormSaves(name="saves", master_surface= self.master_surface, imagen_background= PATH_RECURSOS + r"\background\forest2.png")
         self.on_click_boton("saves")
 
     def options(self, parametro):
-        FormMenuOpciones(name="options",master_surface = self.master_surface, imagen_background =PATH_RECURSOS + r"\background\Pradera2.png")
+        FormMenuOpciones(name="options",master_surface = self.master_surface, imagen_background =PATH_RECURSOS + r"\background\Pradera1.png")
         self.on_click_boton("options")
         
     def salir(self, parametro):

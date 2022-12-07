@@ -1,9 +1,9 @@
 import pygame
-from pygame.locals import *
 import sys
 from aux_constantes import *
 from gui_form_menu_main import FormMenuMain
 from aux_json import importar_lista
+from manager_data import crear_archivo_DB
 
 pygame.init()
 pygame.mixer.init()
@@ -15,6 +15,7 @@ clock = pygame.time.Clock()
 segundo = pygame.USEREVENT + 0
 pygame.time.set_timer(segundo,1000)
 
+crear_archivo_DB()
 main_menu = FormMenuMain(name="main", master_surface = screen, imagen_background = PATH_RECURSOS + r"\background\Pradera0.png")
 main_menu.crear_efectos_de_sonido(importar_lista(PATH_JSON.format("sonidos"), "sounds"))
 while True:
@@ -26,7 +27,7 @@ while True:
         if event.type == pygame.QUIT:       
             pygame.quit()
             sys.exit() 
-
+    
     main_menu.update_form(lista_eventos, delta_ms, segundo, teclas_presionadas) 
     pygame.display.flip()
 

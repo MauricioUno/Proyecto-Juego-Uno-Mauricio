@@ -12,8 +12,7 @@ class Button(Widget):
         self.state = M_STATE_NORMAL
         self.active = active
         if not self.active:
-            self.image_background = pygame.image.load(PATH_RECURSOS + r"\gui\lock.png").convert_alpha()
-            self.image_background = pygame.transform.scale(self.image_background,(self.w, self.h)).convert_alpha()
+            self.change_image_background(PATH_RECURSOS + r"\gui\lock.png")
         
     def render(self):
         super().render()

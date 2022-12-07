@@ -16,12 +16,7 @@ class Widget:
         
         self.image_background = image_background
         if self.image_background != None:
-            try:
-                self.image_background = pygame.image.load(image_background).convert_alpha()
-                self.image_background = pygame.transform.scale(self.image_background,(w, h)).convert_alpha()
-            except:
-                self.image_background = None
-                print("Error al cargar la imagen {0}".format(image_background))
+            self.change_image_background(self.image_background)
 
 
         self.text = text
@@ -41,6 +36,14 @@ class Widget:
         self.slave_rect_collide.x += self.master_form.x
         self.slave_rect_collide.y += self.master_form.y
 
+
+    def change_image_background(self, image_background):
+        try:
+            self.image_background = pygame.image.load(image_background).convert_alpha()
+            self.image_background = pygame.transform.scale(self.image_background,(self.w, self.h)).convert_alpha()
+        except:
+            self.image_background = None
+            print("Error al cargar la imagen {0}".format(image_background))
 
     def render(self):
         

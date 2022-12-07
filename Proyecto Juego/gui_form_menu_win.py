@@ -3,8 +3,7 @@ from gui_form import Form
 from gui_button import Button
 from gui_widget import Widget
 from gui_form_nivel import FormNivel
-from SQL_RANK import *
-from SQL_SAVES import *
+from manager_data import *
 
 
 class FormWin(Form):
@@ -57,8 +56,8 @@ class FormWin(Form):
         self.text_total.text = "Score Total: {0}".format(self.score_total)
 
         if self.nro_lvl < ULTIMO_NIVEL:
-            actualizar_data_nivel(self.save_file, self.nro_lvl + 1, vida, municion, self.score_total, reloj + 60 - tiempo, True)
+            guardar_partida(self.save_file, self.nro_lvl + 1, vida, municion, self.score_total, reloj + 60 - tiempo, True)
         else:
-            nombre = obtener_nombre(self.save_file)
-            crear_data_base_ranking()
-            insertar_fila(nombre, self.score_total, reloj + 60 - tiempo)
+            if self.nro_lvl == ULTIMO_NIVEL:
+                nombre = obtener_name_save(self.save_file)
+                guardar_score(nombre, self.score_total, reloj + 60 - tiempo)

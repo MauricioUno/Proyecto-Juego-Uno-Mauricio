@@ -6,7 +6,7 @@ from gui_widget import Widget
 from gui_progressbar import HealthBar
 
 
-from SQL_SAVES import obtener_data_nivel
+from manager_data import obtener_data_nivel
 from class_plataforma import ListaPlataformas
 from class_trampa import ListaTrampas
 from class_portal import Portal
@@ -64,7 +64,7 @@ class FormNivel(Form):
 
         for event in lista_eventos:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
+                if event.key == pygame.K_ESCAPE or event.key == pygame.K_p:
                     self.set_active("pause")
             
             if event.type == segundo:
@@ -80,7 +80,6 @@ class FormNivel(Form):
             self.play_efecto_sonido("win")
 
         
-
 
     def draw(self, lista_eventos, delta_ms, teclas_presionadas):
 

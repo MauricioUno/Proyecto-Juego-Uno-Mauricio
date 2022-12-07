@@ -1,0 +1,45 @@
+{
+    "level_4":[
+        {
+            "background": "/background/space.png",
+            "pos_player": [0,500],
+            "pos_portal": [0,0],
+            "tiempo": 600,
+            "score_tiempo": 20,
+            "score_vida": 2,
+            "plataformas":
+            {
+                "terreno":
+                [
+
+                    {
+                        "tipo": "tile (2)",
+                        "pos": [0,660],
+                        "dim": [100,100],
+                        "distancia": [100,100],
+                        "cant": [15,1]
+                    },
+
+                    {
+                        "tipo": "tile (2)",
+                        "pos": [300,200],
+                        "dim": [100,100],
+                        "distancia": [600,100],
+                        "cant": [2,1]
+                    }
+                ]
+                
+            },
+            
+            "trampas":
+            {
+            },
+            "enemigos":
+            {
+            },
+            "items":[
+            ]
+            
+        }
+    ]
+}

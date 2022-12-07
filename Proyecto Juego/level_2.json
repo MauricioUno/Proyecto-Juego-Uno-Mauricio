@@ -1,7 +1,7 @@
 {
     "level_2":[
         {
-            "background": "/background/snow3.png",
+            "background": "/background/snow0.png",
             "pos_player": [0,540],
             "pos_portal": [-20,170],
             "tiempo": 60,
