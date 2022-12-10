@@ -1,6 +1,6 @@
 <h1 align="left">Glitch (DEMO)</h1>
 
-Programa desarrollado con Python que permite ejecutar una version en desarrollo de GLITCH, un videojuego 2D de plataformas basado en [GLITCH THE GAME](http://www.glitchthegame.com).
+Programa desarrollado con Python que permite ejecutar una version en desarrollo de GLITCH, un videojuego 2D de plataformas basado en [GLITCH THE GAME](http://www.glitchthegame.com).<br>
 A medida que se completan los niveles, el progreso del jugador se ira guardando y al terminar el juego, se guarda el puntaje final en un ranking, esto es posible gracias al uso de SQLITE
 
 <h3 align="left">Video de la demo:</h3>
