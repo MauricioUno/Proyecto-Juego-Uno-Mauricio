@@ -17,17 +17,20 @@ from jugador import Jugador
 
 
 class FormNivel(Form):
+    '''
+    Formulario que representa el nivel del juego 
+    '''
     def __init__(self, save_file, nivel, master_surface,x=0, y=0, w=ANCHO_VENTANA, h=ALTO_VENTANA, color_background=None, imagen_background=None, color_border=None, active=False):
-        self.save_file = save_file
+        '''
+        Inicializacion del nivel; conformado por un contador, los widgets requeridos para representar la informacion
+        que se mostrara en pantalla (vida, ammo, score, tiempo).
+        Todo lo relacionado a la construccion del nivel es recibido del archivo json correspondiente
+        '''
         self.name = "level_{0}".format(nivel)
-        self.nro_nivel = nivel
+        self.tiempo = 60
         data_nivel = importar_lista(PATH_JSON.format(self.name), self.name)[0]
-        imagen_background = PATH_RECURSOS + data_nivel["background"]
-        self.tiempo = data_nivel["tiempo"]
-        self.health_score = data_nivel["score_vida"]
-        self.tiempo_score = data_nivel["score_tiempo"]
-        self.cronometro = 0
-        super().__init__(self.name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
+        
+        super().__init__(self.name, master_surface, x, y, w, h, color_background, PATH_RECURSOS + data_nivel["background"], color_border, active)
         self.plataformas = ListaPlataformas(data_nivel["plataformas"], self, self.name)
         self.trampas = ListaTrampas(data_nivel["trampas"], self, self.name)
         self.enemigos = ListaEnemigos(data_nivel["enemigos"], self)
@@ -42,29 +45,42 @@ class FormNivel(Form):
         self.time = Widget(master=self, x=1390, y = 10, w=100, h=30,image_background=PATH_RECURSOS + r"\gui\time.png", text="{0}".format(self.tiempo),font_size=30, font_color=C_BLACK)
         self.lista_widget = [self.health_bar, self.orb, self.ammo, self.score, self.orb, self.ammo, self.time]
     
-        datos = obtener_data_nivel(self.save_file, self.nro_nivel)
-        self.cargar_datos_jugador(datos[0], datos[1], datos[2], datos[3])
+        self.cargar_datos_jugador(save_file, nivel)
         
 
 
-    def cargar_datos_jugador(self, vida, municion, score, tiempo):
-        self.jugador.vida = vida
-        self.jugador.municion = municion
-        self.jugador.score = score
-        self.cronometro = tiempo
+    def cargar_datos_jugador(self, save_file, nivel):
+        '''
+        Carga la informacion del jugador en la partida y nivel pasados como parametro
+        '''
+        datos = obtener_data_nivel(save_file, nivel)
+        self.jugador.vida = datos[0]
+        self.jugador.municion = datos[1]
+        self.jugador.score = datos[2]
 
-    def update(self, lista_eventos, delta_ms, segundo):
+    def actualizar_valor_widgets(self):
+        '''
+        Actualiza la informacion que muestran los widget
+        '''
         self.health_bar.value = self.jugador.vida
-        self.ammo.text = "{0}".format(self.jugador.municion)
-        self.score.text = "{0}".format(self.jugador.score)
-        self.time.text = "{0}".format(self.tiempo)
+        self.ammo.text = f"{self.jugador.municion}"
+        self.score.text = f"{self.jugador.score}"
+        self.time.text = f"{self.tiempo}"
+ 
+    def update(self, lista_eventos, delta_ms, segundo):
+        '''
+        Actualiza los widgets del formulario
+        Verifica si se aprieta la tecla ESC (pausa) y determina el tiempo de juego.
+        En caso que el jugador gane o pierda, se activaran los formularios 'win' / 'lose' respectivamente
+        '''
+        self.actualizar_valor_widgets()
 
-        for aux_boton in self.lista_widget:
-            aux_boton.update(lista_eventos)
+        for widget in self.lista_widget:
+            widget.update(lista_eventos)
 
         for event in lista_eventos:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE or event.key == pygame.K_p:
+                if event.key == pygame.K_ESCAPE:
                     self.set_active("pause")
             
             if event.type == segundo:
@@ -75,14 +91,16 @@ class FormNivel(Form):
             self.set_active("lose")
             self.play_efecto_sonido("death")
         elif self.jugador.win:
-            self.forms_dict["win"].puntaje_obtenido(self.jugador.vida, self.health_score, self.tiempo, self.tiempo_score, self.jugador.score, self.jugador.municion, self.cronometro)
+            self.forms_dict["win"].puntaje_obtenido(self.jugador.vida, self.jugador.score, self.jugador.municion, self.tiempo)
             self.set_active("win")
             self.play_efecto_sonido("win")
 
         
 
     def draw(self, lista_eventos, delta_ms, teclas_presionadas):
-
+        '''
+        Se encarga de mostrar en pantalla a todos los elementos que conforman el formulario.
+        '''
         self.master_surface.blit(self.surface, self.slave_rect)
         self.render()
         self.plataformas.actualizar(delta_ms)

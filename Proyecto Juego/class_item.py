@@ -3,7 +3,7 @@ import re
 from aux_constantes import *
 from class_A import *
 
-class Item(Imagen):
+class Item(Objeto):
     def __init__(self, tipo, ancho, alto, pos_x, pos_y, efecto, screen) -> None:
         super().__init__("/items/{0}.png".format(tipo), ancho, alto, pos_x, pos_y, screen)
         self.activo = True

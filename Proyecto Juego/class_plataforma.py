@@ -1,10 +1,10 @@
 import pygame
 from aux_constantes import *
-from class_A import Imagen
+from class_A import Objeto
 from math import *
 import re
 
-class Plataforma(Imagen):
+class Plataforma(Objeto):
     def __init__(self, pos_x, pos_y, ancho, alto, tipo, terreno, screen) -> None:
         super().__init__("/tile/{0}.png".format(tipo), ancho, alto, pos_x, pos_y, screen)
         self.rect_piso = pygame.Rect(self.rect.x, self.rect.y, self.rect.w, 10)
@@ -45,26 +45,19 @@ class PlatMov(Plataforma):
         self.counter += 1
         if self.counter > self.max:
             if self.reinicio:
-                self.rect.x = self.x_init 
-                self.rect.y = self.y_init
-                self.rect_piso.x = self.x_init
-                self.rect_piso.y = self.y_init
+                self.rect.update(self.x_init, self.y_init, self.rect.w, self.rect.h)
+                self.rect_piso.update(self.x_init, self.y_init, self.rect_piso.w, self.rect_piso.h)
             else:
                 self.speed *= -1
             self.counter = 0
     
-        self.move_x = self.speed
-        self.move_y = self.speed
-    
 
     def tipo_de_movimiento(self):
-        if not re.search("diagonal", self.movimiento, re.IGNORECASE):
-
-            if re.search("horizontal", self.movimiento, re.IGNORECASE):
-                self.move_y = 0
-            
-            elif re.search("vertical", self.movimiento, re.IGNORECASE):
-                self.move_x = 0
+        if re.search("horizontal", self.movimiento, re.IGNORECASE):
+            self.move_x = self.speed
+        
+        elif re.search("vertical", self.movimiento, re.IGNORECASE):
+            self.move_y = self.speed
 
 
     def actualizar_plataforma(self, delta_ms):

@@ -20,26 +20,29 @@ class Proyectil(ObjetoAnimado):
 
 
     def verificar_colision(self,objetivos, plataformas):
-        for objetivo in objetivos:
-            if self.rect_hitbox.colliderect(objetivo.rect_hitbox) and objetivo.vida > 0:
-                objetivo.recibir_golpe(self)
-                self.activo = False
 
-        for plataforma in plataformas:
-            if self.rect_hitbox.colliderect(plataforma.rect):
-                self.activo = False
-
-
-    def verificar_limite_x(self):
         if not (self.min_x < self.rect_hitbox.x and self.rect_hitbox.x < self.max_x):
             self.activo = False
 
+        if self.activo:
+            for objetivo in objetivos:
+                if self.rect_hitbox.colliderect(objetivo.rect_hitbox) and objetivo.vida > 0:
+                    objetivo.recibir_golpe(self)
+                    self.activo = False
+                    
+
+        if self.activo:
+            for plataforma in plataformas:
+                if self.rect_hitbox.colliderect(plataforma.rect) and plataforma.terreno:
+                    self.activo = False
+                    break
+
+        
 
     def actualizar_disparo(self, objetivos, plataformas):
         self.updatear_frames()
         self.actualizar_posicion()
         self.verificar_colision(objetivos, plataformas)
-        self.verificar_limite_x()
         self.draw()
 
     

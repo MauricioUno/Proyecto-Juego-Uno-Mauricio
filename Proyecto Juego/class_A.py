@@ -24,7 +24,7 @@ class ObjetoAnimado:
 
 
 
-class Imagen:
+class Objeto:
     def __init__(self, path_imagen, ancho, alto, pos_x, pos_y, screen) -> None:
         self.imagen = pygame.image.load(PATH_RECURSOS + path_imagen).convert_alpha()
         self.imagen = pygame.transform.scale(self.imagen, (ancho, alto)).convert_alpha()

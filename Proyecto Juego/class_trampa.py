@@ -1,7 +1,7 @@
-from class_A import Imagen
+from class_A import Objeto
 import re
 
-class Trampa(Imagen):
+class Trampa(Objeto):
     def __init__(self, pos_x, pos_y, ancho, alto, path_imagen, screen) -> None:
         super().__init__(path_imagen, ancho, alto, pos_x, pos_y, screen)
         self.damage = 20

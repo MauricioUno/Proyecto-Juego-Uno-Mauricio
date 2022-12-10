@@ -8,6 +8,10 @@ from gui_progressbar import ElementBar
 
 
 class FormPausaSonido(Form):
+    '''
+    Version miniatura de FormSonido, leer su documentacion, la unica diferencia es la funcion retroceder,
+    que activara el formulario 'pause' en lugar de 'main'
+    '''
     def __init__(self, name, master_surface, x,y,w=300,h=350,color_background= None, imagen_background = None, color_border= None,active=False):
         super().__init__(name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
         self.surface.set_colorkey(C_BLACK)

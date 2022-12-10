@@ -8,7 +8,14 @@ from manager_data import crear_partida
 import re
 
 class FormName(Form):
+    '''
+    Formulario que representa el menu de ingresar nombre
+    '''
     def __init__(self, save_file, name, master_surface, x, y, w, h, color_background = None, imagen_background = None, color_border = None, active = False):
+        '''
+        Se llamara a este formulario para empezar una partida nueva, su inicializacion consta de dos botones con distintas
+        funciones y una caja de texto, donde el usuario podra ingresar su nombre
+        '''
         self.save_file = save_file
         super().__init__(name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
         self.surface.set_colorkey(C_BLACK)
@@ -20,11 +27,18 @@ class FormName(Form):
 
 
     def retroceder(self, parametro):
+        '''
+        Elimina el formulario 'name' de forms_dict y activa el formularios 'saves'
+        '''
         self.forms_dict.pop("name")
         self.on_click_boton("saves")
 
 
     def guardar_nombre(self, parametro):
+        '''
+        Guarda el nombre del jugador y crea una nueva partida con este y el save_file que corresponda.
+        Elimina el formulario 'name' de forms_dict y empieza la partida
+        '''
         if re.search("^ | $", self.input.text):
             self.input.text = self.input.text.strip()
 

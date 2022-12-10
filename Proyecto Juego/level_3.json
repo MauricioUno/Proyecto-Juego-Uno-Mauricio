@@ -4,7 +4,6 @@
             "background": "/background/Cave0.png",
             "pos_player": [20,500],
             "pos_portal": [-20,170],
-            "tiempo": 60,
             "score_tiempo": 10,
             "score_vida": 15,
             "plataformas":

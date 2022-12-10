@@ -8,7 +8,14 @@ from gui_form_nivel import FormNivel
 
 
 class FormLose(Form):
+    '''
+    Formulario que representa el menu de derrota
+    '''
     def __init__(self, save_file, nro_lvl,name, master_surface, x, y, w, h, color_background = None, imagen_background = None, color_border = None, active = False):
+        '''
+        Inicializacion del formulario 'lose'; conformado por dos botones con funciones distintas, y la informacion
+        necesaria para saber de donde recibir y enviar informacion sobre la partida
+        '''
         super().__init__(name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
         self.surface.set_colorkey(C_BLACK)
         self.save_file = save_file
@@ -21,11 +28,17 @@ class FormLose(Form):
 
     
     def replay(self, nada):
+        '''
+        Descarta el formulario que representa al nivel y vuelve a crearlo, lo pone en activo
+        '''
         self.forms_dict.pop(self.clave_lvl)
         FormNivel(save_file = self.save_file, nivel = self.nro_lvl, master_surface = self.master_surface)
         self.on_click_boton(self.clave_lvl)
 
     def menu(self, parametro):
+        '''
+        Elimina de forms_dict todos los formularios que se utilizan al estar en un nivel y vuelve al menu principal
+        '''
         self.eliminar_formularios([self.clave_lvl, "levels", "pause", "win", "lose"])
         self.activar_musica("music_main")
         self.on_click_boton("main")

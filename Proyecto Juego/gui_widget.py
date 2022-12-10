@@ -3,7 +3,7 @@ from pygame.locals import *
 from aux_constantes import *
 
 class Widget:
-    def __init__(self,master,x,y,w,h,color_background = None,color_border = None,image_background=None,text=None,font_size=None,font_color=None, center = True):
+    def __init__(self,master,x,y,w,h,color_background = None,color_border = None,image_background=None,text=None,font_size=None,font_color=COLOR_TEXTO_MENU, center = True):
         self.center = center
         self.master_form = master
         self.x = x
