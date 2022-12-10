@@ -3,8 +3,5 @@
 
 Video de la demo:
 <p align="center">
-ewewe
-
-[![Video demo](https://cdn.discordapp.com/attachments/1036152912600121356/1051167099122368542/main_menu.png)](https://www.youtube.com/watch?v=kE6Hpu-GOVY)
-
+![Video demo](https://cdn.discordapp.com/attachments/1036152912600121356/1051167099122368542/main_menu.png)
 </p>
