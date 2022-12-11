@@ -8,6 +8,7 @@ Consta de varios menus en los cuales el usuario podra navegar segun lo requiera,
 
 
 <h2 align="left">Version Alfa:</h2>
+
 - El funcionamiento del juego se basa en objetos **Form** y **Widget**, que permiten la interaccion entre usuario y videojuego
 - Para guardar y acceder a la informacion de la partida correspondiente se utiliza la biblioteca [SQLITE3](https://docs.python.org/es/3/library/sqlite3.html?highlight=sqlite3#module-sqlite3) que permite la conexion entre python y sqlite. **manager_data.py** contiene todas las funciones necesarias de comunicacion.
 - La informacion para construir cada nivel se almacena en archivos JSON que luego es recibida por **gui_form_level.py**.
