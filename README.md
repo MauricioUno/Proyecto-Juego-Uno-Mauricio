@@ -13,7 +13,7 @@ Consta de varios menus en los cuales el usuario podra navegar segun lo requiera,
 - Para guardar y acceder a la informacion de la partida correspondiente se utiliza la biblioteca [SQLITE3](https://docs.python.org/es/3/library/sqlite3.html?highlight=sqlite3#module-sqlite3) que permite la conexion entre python y sqlite. **manager_data.py** contiene todas las funciones necesarias de comunicacion.
 - La informacion para construir cada nivel se almacena en archivos JSON que luego es recibida por **gui_form_level.py**.
 
-<h4 align="left">Formularios</h4>
+<h3 align="left">Formularios</h3>
 
 Un objeto **Form** es una superficie que sera colocada en la pantalla junto con los elementos que la conforman.
 ~~~
@@ -49,7 +49,7 @@ Ademas de las funciones para actualizarse y colocarse en pantalla, la clase **Fo
 - El form mas diferente es el de FormNivel, ya que ademas de tener widgets, estara conformado por todos los elementos que se necesitan para jugar (jugador, plataformas, enemigos, etc)
 ___
 
-<h4 align="left">Widgets</h4>
+<h3 align="left">Widgets</h3>
 
 La clase **Widget** es la clase padre de todos los elementos que permiten la interaccion del usuario con el menu, desde imagenes hasta cajas de texto, todo widget es dependiente de los formularios, ya que la superficie en la que se colocaran es la de su **formulario maestro**
 ~~~
