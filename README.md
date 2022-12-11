@@ -12,8 +12,14 @@ El juego consiste en superar los obstaculos y a los enemigos para poder llegar a
 
 <h2 align="left">Lenguajes y herramientas utilizadas:</h2><p align="left"> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a> <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/visual-studio-code.svg?raw=true" alt="VSCode Logo" width="40" height="40"/> </a> </p>
 
-<h2 align="left">Preparacion del entorno:</h2>
-He aqui un video de como instalar el videojuego:
+<h3 align="left">Preparacion del entorno:</h3>
+
+- Se requiere instalar Anaconda
+- Se requiere instalar Visual Studio Code
+- Una vez completado los dos pasos anteriores, se descargara Python y la Libreria Pygame desde VSC
+<h3 align="left">Video Guia:</h3>
+
+
 
 
 <h2 align="left">Version Alfa:</h2>

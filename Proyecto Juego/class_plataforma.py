@@ -6,7 +6,7 @@ import re
 
 class Plataforma(Objeto):
     def __init__(self, pos_x, pos_y, ancho, alto, tipo, terreno, screen) -> None:
-        super().__init__("/tile/{0}.png".format(tipo), ancho, alto, pos_x, pos_y, screen)
+        super().__init__(PATH_RECURSOS + "/tile/{0}.png".format(tipo), ancho, alto, pos_x, pos_y, screen)
         self.rect_piso = pygame.Rect(self.rect.x, self.rect.y, self.rect.w, 10)
         self.terreno = terreno
         self.move_x = 0
