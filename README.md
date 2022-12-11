@@ -17,14 +17,10 @@ Consta de varios menus en los cuales el usuario podra navegar segun lo requiera,
 
 <h3 align="left">Formularios</h3>
 
-Un objeto **Form** es una superficie que sera colocada en la pantalla junto con los elementos que la conforman.
+Un formulario es una superficie que sera colocada en la pantalla junto con los elementos que la conforman.
+La clase **Form** es la clase padre de todos los formularios, cada uno conformado por una lista de widgets distinta y metodos que se adaptan a lo que se quiere hacer en ese formulario.
 
 Ademas de las funciones para actualizarse y colocarse en pantalla, la clase **Form** tiene metodos que permiten activar musica, efectos de sonido y permite la navegabilidad entre los distintos formularios. Para mas informacion ver ***gui_form.py***
-
-Form es la clase padre de todos los formulario,, cada uno conformado por una lista de widgets distinta y metodos que se adaptan a lo que se quiere hacer en ese formulario.
-
-FormNivel es el mas diferente, ya que ademas de tener widgets, estara conformado por todos los elementos que se necesitan para jugar (jugador, plataformas, enemigos, etc)
-
 
 <h3 align="left">Widgets</h3>
 
