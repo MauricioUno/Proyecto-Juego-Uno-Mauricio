@@ -9,8 +9,9 @@ class Form():
     sounds_dict = {}
     def __init__(self,name,master_surface,x,y,w,h,color_background, imagen_background, color_border,active):
         '''
-        Inicializacion del formulario; conformado por sus dimensiones, superficie, fondo, su estado (que determina si se muestra
-        el formulario) y una lista de widgets que se usan para interactuar con el usuario
+        Inicializacion del formulario; conformado por sus dimensiones, superficie, 
+        fondo, su estado (que determina si se muestra el formulario) y una lista 
+        de widgets que se usan para interactuar con el usuario
         '''
         self.forms_dict[name] = self
         self.master_surface = master_surface
@@ -71,13 +72,12 @@ class Form():
 
     def update_form(self, lista_eventos, delta_ms, segundo, teclas_presionadas):
         '''
-        Metodo que permite la actualizacion del formulario que se encuentre activo, de manera que solo se 
-        actualice un formulario
+        Metodo que actualiza y muestra en pantalla al primer formulario que se encuentre activo
         '''
-        for aux_form in self.forms_dict.values():
-            if aux_form.active:
-                aux_form.update(lista_eventos, delta_ms, segundo)
-                aux_form.draw(lista_eventos, delta_ms, teclas_presionadas)
+        for form in self.forms_dict.values():
+            if form.active:
+                form.update(lista_eventos, delta_ms, segundo)
+                form.draw(lista_eventos, delta_ms, teclas_presionadas)
                 break
     
 
