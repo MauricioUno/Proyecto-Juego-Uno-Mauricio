@@ -1,6 +1,6 @@
 from aux_constantes import *
 from gui_form import Form
-from gui_button import Button
+from gui_widget_button import Button
 from gui_widget import Widget
 
 
@@ -41,7 +41,7 @@ class FormControles(Form):
         elif self.valor < 0:
             self.valor = 3
 
-        self.image.change_image_background(PATH_RECURSOS + r"\background\tutorial{0}.png".format(self.valor))
+        self.image.asignar_imagen_background(PATH_RECURSOS + r"\background\tutorial{0}.png".format(self.valor))
         try:
             self.text.text = self.textos[self.valor]
         except:

@@ -9,28 +9,23 @@ Consta de varios menus en los cuales el usuario podra navegar segun lo requiera,
 
 <h2 align="left">Version Alfa:</h2>
 - El funcionamiento del juego se basa en objetos **Form** y **Widget**, que permiten la interaccion entre usuario y videojuego
-- Para guardar y acceder a la informacion de la partida correspondiente se utiliza la biblioteca [SQLITE3](https://docs.python.org/es/3/library/sqlite3.html?highlight=sqlite3#module-sqlite3) que permite la conexion entre python y sqlite.
-- La informacion de cada nivel se almacena en archivos JSON que luego es recibida por el programa para construir el nivel.
+- Para guardar y acceder a la informacion de la partida correspondiente se utiliza la biblioteca [SQLITE3](https://docs.python.org/es/3/library/sqlite3.html?highlight=sqlite3#module-sqlite3) que permite la conexion entre python y sqlite. **manager_data.py** contiene todas las funciones necesarias de comunicacion.
+- La informacion para construir cada nivel se almacena en archivos JSON que luego es recibida por **gui_form_level.py**.
 
 
 
-####Formularios y Widgets####
+####Formularios####
 Un objeto **Form** es una superficie que sera colocada en la pantalla junto con los elementos que la conforman.
 ~~~
 class Form():
     '''
     Clase padre de todos los menus del juego; 
-    cada formulario creado es agregado a 'forms_dict'
+    cada formulario creado es agregado a FORMS_DICT
     '''
     forms_dict = {}
     sounds_dict = {}
     def __init__(self,name,master_surface,x,y,w,h,color_background, imagen_background, color_border,active):
-        '''
-        Inicializacion del formulario; conformado por sus dimensiones, superficie, 
-        fondo, su estado (que determina si se muestra el formulario) y una lista 
-        de widgets que se usan para interactuar con el usuario
-        '''
-        self.forms_dict[name] = self
+		self.forms_dict[name] = self
         self.master_surface = master_surface  #La superficie de la pantalla
         self.x = x
         self.y = y
@@ -45,43 +40,41 @@ class Form():
         self.lista_widget = []
 ~~~
 
-Ademas de las funciones para actualizarse y colocarse en pantalla, la clase **Form** tiene metodos que permiten activar musica, efectos de sonido y la navegabilidad entre los distintos formularios en **forms_dict**.
-El metodo que se utiliza en el main principal es update_form:
-~~~
-def update_form(self, lista_eventos, delta_ms, segundo, teclas_presionadas):
-        '''
-        Recorre toda el diccionario de formulario, actualiza y muestra en
-		pantalla al formulario que este ACTIVO
-        '''
-        for form in self.forms_dict.values():
-            if form.active:
-                form.update(lista_eventos, delta_ms, segundo)
-                form.draw(lista_eventos, delta_ms, teclas_presionadas)
-                break
-~~~
+Ademas de las funciones para actualizarse y colocarse en pantalla, la clase **Form** tiene metodos que permiten activar musica, efectos de sonido y permiten la navegabilidad entre los distintos formularios en **forms_dict**. Para mas informacion ver ***gui_form.py***
 
-De esta forma:
-~~~
-screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
-clock = pygame.time.Clock()
+#####Nota#####
+- Form es la clase padre de todos los distintos objetos formulario que hay, cada uno conformado por una lista de widgets distinta y metodos que se adaptan a lo que se quiere hacer en ese formulario.
 
-segundo = pygame.USEREVENT + 0
-pygame.time.set_timer(segundo,1000)
-
-main_menu = FormMenuMain(name="main", master_surface = screen)
-while True:
-    
-    delta_ms = clock.tick(FPS)
-    lista_eventos = pygame.event.get()
-    teclas_presionadas = pygame.key.get_pressed()
-    for event in lista_eventos:
-        if event.type == pygame.QUIT:       
-            pygame.quit()
-            sys.exit() 
-    
-    main_menu.update_form(lista_eventos, delta_ms, segundo, teclas_presionadas) 
-    pygame.display.flip()
+- El form mas diferente es el de FormNivel, ya que ademas de tener widgets, estara conformado por todos los elementos que se necesitan para jugar (jugador, plataformas, enemigos, etc)
+___
+####Widgets####
+La clase **Widget** es la clase padre de todos los elementos que permiten la interaccion del usuario con el menu, desde imagenes hasta cajas de texto, todo widget es dependiente de los formularios, ya que la superficie en la que se colocaran es la de su **formulario maestro**
 ~~~
+class Widget:
+    def __init__(self,master,x,y,w,h,color_background, color_border, image_background, 
+	text, font_size, font_color, center):
+        self.center = center
+        self.master_form = master # Objeto Form
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.color_background = color_background
+        self.color_border = color_border
+        self.image_background = image_background
+		self.text = text
+        self.font_color = font_color
+		self.font_sys = pygame.font.Font("JingleBalonsGTDemo.ttf", font_size)
+
+        self.slave_surface = pygame.Surface((self.w,self.h), pygame.SRCALPHA)
+        self.slave_rect = self.slave_surface.get_rect(x = self.x, y = self.y)
+        self.slave_rect_collide = pygame.Rect(self.slave_rect)
+        self.slave_rect_collide.x += self.master_form.x
+        self.slave_rect_collide.y += self.master_form.y
+~~~
+Los metodos de **Widget** actualizan la informacion que contienen y los blitea en la superficie de su formulario maestro, los objetos que heredan la clase **Widget**, tendran mas atributos y metodos de actualizacion mas complejos. Para mas informacion ver **gui_widget.py**.
+
+
 
 
 

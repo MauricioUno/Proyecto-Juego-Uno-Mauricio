@@ -1,6 +1,6 @@
 from aux_constantes import *
 from gui_form import *
-from gui_button import *
+from gui_widget_button import *
 from gui_widget import Widget
 from manager_data import *
 

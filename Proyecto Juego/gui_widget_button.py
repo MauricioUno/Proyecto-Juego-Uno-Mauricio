@@ -12,7 +12,7 @@ class Button(Widget):
         self.state = M_STATE_NORMAL
         self.active = active
         if not self.active:
-            self.change_image_background(PATH_RECURSOS + r"\gui\lock.png")
+            self.asignar_imagen_background(PATH_RECURSOS + r"\gui\lock.png")
         
     def render(self):
         super().render()

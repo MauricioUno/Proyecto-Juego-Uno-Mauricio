@@ -3,7 +3,7 @@ from aux_constantes import *
 from aux_json import *
 from gui_form import Form
 from gui_widget import Widget
-from gui_progressbar import HealthBar
+from gui_widget_bar import HealthBar
 
 
 from manager_data import obtener_data_nivel

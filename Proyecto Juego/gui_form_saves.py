@@ -1,9 +1,9 @@
 from gui_form import Form
-from gui_button import Button
+from gui_widget_button import Button
 from aux_constantes import *
 from manager_data import obtener_name_save
-from gui_form_menu_nivel import FormMenuNiveles
-from gui_form_ingresar_nombre import FormName
+from gui_form_select_level import FormMenuNiveles
+from gui_form_name import FormName
 
 class FormSaves(Form):
     '''

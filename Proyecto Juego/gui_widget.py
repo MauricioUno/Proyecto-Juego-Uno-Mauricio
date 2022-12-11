@@ -5,7 +5,7 @@ from aux_constantes import *
 class Widget:
     def __init__(self,master,x,y,w,h,color_background = None,color_border = None,image_background=None,text=None,font_size=None,font_color=COLOR_TEXTO_MENU, center = True):
         self.center = center
-        self.master_form = master
+        self.master_form = master # Objeto Form
         self.x = x
         self.y = y
         self.w = w
@@ -16,7 +16,7 @@ class Widget:
         
         self.image_background = image_background
         if self.image_background != None:
-            self.change_image_background(self.image_background)
+            self.asignar_imagen_background(self.image_background)
 
 
         self.text = text
@@ -37,7 +37,7 @@ class Widget:
         self.slave_rect_collide.y += self.master_form.y
 
 
-    def change_image_background(self, image_background):
+    def asignar_imagen_background(self, image_background):
         try:
             self.image_background = pygame.image.load(image_background).convert_alpha()
             self.image_background = pygame.transform.scale(self.image_background,(self.w, self.h)).convert_alpha()

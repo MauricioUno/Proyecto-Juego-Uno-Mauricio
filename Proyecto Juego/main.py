@@ -1,7 +1,7 @@
 import pygame
 import sys
 from aux_constantes import *
-from gui_form_menu_main import FormMenuMain
+from gui_form_main import FormMenuMain
 from aux_json import importar_lista
 from manager_data import crear_archivo_DB
 

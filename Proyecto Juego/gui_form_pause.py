@@ -1,8 +1,8 @@
 from aux_constantes import *
 from gui_form import *
-from gui_button import *
-from gui_form_pausa_sonido import FormPausaSonido
-from gui_form_nivel import FormNivel
+from gui_widget_button import *
+from gui_form_sound_2 import FormPausaSonido
+from gui_form_level import FormNivel
 
 class FormPausa(Form):
     '''

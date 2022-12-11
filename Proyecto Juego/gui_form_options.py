@@ -2,10 +2,10 @@ import pygame
 from pygame.locals import *
 from aux_constantes import *
 from gui_form import Form
-from gui_form_menu_score import FormScore
-from gui_button import Button
-from gui_form_menu_sonido import FormSonido
-from gui_form_menu_controles import FormControles
+from gui_form_score import FormScore
+from gui_widget_button import Button
+from gui_form_sound_1 import FormSonido
+from gui_form_controls import FormControles
 
 
 class FormMenuOpciones(Form):

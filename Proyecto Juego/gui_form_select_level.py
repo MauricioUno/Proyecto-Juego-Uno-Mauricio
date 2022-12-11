@@ -2,13 +2,13 @@ import pygame
 from pygame.locals import *
 from aux_constantes import *
 from gui_form import Form
-from gui_button import Button
-from gui_form_nivel import FormNivel
+from gui_widget_button import Button
+from gui_form_level import FormNivel
 from gui_widget import Widget
 from manager_data import *
-from gui_form_menu_pausa import FormPausa
-from gui_form_menu_win import FormWin
-from gui_form_menu_lose import FormLose
+from gui_form_pause import FormPausa
+from gui_form_win import FormWin
+from gui_form_lose import FormLose
 
 class FormMenuNiveles(Form):
     '''

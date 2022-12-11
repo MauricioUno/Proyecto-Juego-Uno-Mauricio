@@ -2,9 +2,9 @@ import pygame
 from pygame.locals import *
 from aux_constantes import *
 from gui_form import Form
-from gui_button import Button
+from gui_widget_button import Button
 from gui_widget import Widget
-from gui_progressbar import ElementBar
+from gui_widget_bar import ElementBar
 
 
 class FormSonido(Form):

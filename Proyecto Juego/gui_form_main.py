@@ -1,11 +1,11 @@
 import pygame
 import sys
 from gui_form import Form
-from gui_button import Button
+from gui_widget_button import Button
 from aux_constantes import *
 from gui_widget import Widget
-from gui_form_menu_opciones import FormMenuOpciones
-from gui_form_menu_saves import FormSaves
+from gui_form_options import FormMenuOpciones
+from gui_form_saves import FormSaves
 
 class FormMenuMain(Form):
     '''
