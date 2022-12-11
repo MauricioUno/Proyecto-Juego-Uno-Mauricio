@@ -4,11 +4,11 @@ Programa desarrollado con Python que permite ejecutar un videojuego 2D de plataf
 Consta de varios menus en los cuales el usuario podra navegar segun lo requiera, la posibilidad de guardar partida (a traves del uso de SQLITE) y de configurar el volumen del juego.
 
 <h3 align="left">Imagenes:</h3>
-<p align="left"> <a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553422563872919/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553422563872919/image.png" alt="python" width="300" height="200"/> </a><a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553837762228264/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553837762228264/image.png" alt="python" width="300" height="200"/> </a>
-<p align="left"> <a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553944473698445/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553944473698445/image.png" alt="python" width="300" height="200"/> </a><a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051554099969142824/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051554099969142824/image.png" alt="python" width="300" height="200"/> </a>
+<p align="center"> <a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553422563872919/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553422563872919/image.png" alt="python" width="300" height="200"/> </a><a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553837762228264/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553837762228264/image.png" alt="python" width="300" height="200"/> </a>
+<p align="center"> <a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553944473698445/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553944473698445/image.png" alt="python" width="300" height="200"/> </a><a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051554099969142824/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051554099969142824/image.png" alt="python" width="300" height="200"/> </a>
 
 <h3 align="left">Video de la demo:</h3>
-<p align="left"> <a href="https://www.youtube.com/watch?v=kE6Hpu-GOVY" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051167099122368542/main_menu.png" alt="python" width="300" height="200"/> </a>
+<p align="center"> <a href="https://www.youtube.com/watch?v=kE6Hpu-GOVY" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051167099122368542/main_menu.png" alt="python" width="300" height="200"/> </a>
 
 
 <h2 align="left">Version Alfa:</h2>
@@ -31,7 +31,6 @@ La clase **Widget** es la clase padre de todos los elementos que permiten la int
 
 Los metodos de **Widget** actualizan la informacion que contienen y los blitea en la superficie de su formulario maestro, los objetos que heredan la clase **Widget**, tendran mas atributos y metodos de actualizacion mas complejos. Para mas informacion ver **gui_widget.py**.
 
-<h3 align="left">Cambios Planeados:</h3>
 
 
 
