@@ -31,8 +31,7 @@ class Form():
         superficie y su rectangulo,lista de widgets cuya funcion es permitir la 
         interaccion con el usuario
         '''
-
-		self.forms_dict[name] = self
+        self.forms_dict[name] = self
         self.master_surface = master_surface  #La superficie de la pantalla
         self.x = x
         self.y = y
