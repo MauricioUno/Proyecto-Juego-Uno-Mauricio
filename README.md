@@ -25,6 +25,11 @@ class Form():
     forms_dict = {}
     sounds_dict = {}
     def __init__(self,name,master_surface,x,y,w,h,color_background, imagen_background, color_border,active):
+        '''
+        Atributos: dimensiones, ubicacion dentro de la pantalla, elementos de fondo,
+        superficie y su rectangulo,lista de widgets cuya funcion es permitir la 
+        interaccion con el usuario
+        '''
 		self.forms_dict[name] = self
         self.master_surface = master_surface  #La superficie de la pantalla
         self.x = x
