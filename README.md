@@ -37,6 +37,7 @@ La clase **Widget** es la clase padre de todos los elementos que permiten la int
 Los metodos de **Widget** actualizan la informacion que contienen y los blitea en la superficie de su formulario maestro, los objetos que heredan la clase **Widget**, tendran mas atributos y metodos de actualizacion mas complejos. Para mas informacion ver **gui_widget.py**.
 
 <h3 align="left">Cambios Planeados:</h3>
+
 - Optimizacion de la estructura de informacion del nivel en el archivo JSON
 - Optimizacion de la construccion del nivel
 - Optimizacion del manejo de las animaciones de los objetos y su hitbox
@@ -45,6 +46,7 @@ Los metodos de **Widget** actualizan la informacion que contienen y los blitea e
 - Terminar la documentacion de los elementos que conforman los niveles
 
 <h3 align="left">Errores:</h3>
+
 - El cambiar el valor de FPS puede afectar de manera negativa al juego
 - Las constantes PATH_RECURSOS Y PATH_JSON deben ajustarse manualmente segun el lugar donde se tenga guardado los archivos
 
