@@ -5,7 +5,7 @@ from class_A import *
 
 class Item(Objeto):
     def __init__(self, tipo, ancho, alto, pos_x, pos_y, efecto, screen) -> None:
-        super().__init__(PATH_RECURSOS + "/items/{0}.png".format(tipo), ancho, alto, pos_x, pos_y, screen)
+        super().__init__("/items/{0}.png".format(tipo), ancho, alto, pos_x, pos_y, screen)
         self.activo = True
         self.timer = 0
         self.efecto = efecto
