@@ -54,6 +54,9 @@ Los metodos de **Widget** actualizan la informacion que contienen y los blitea e
 <h3 align="left">Errores:</h3>
 
 - El cambiar el valor de FPS puede afectar de manera negativa al juego
+- La posicion del jugador al estar sobre una plataforma no se ajusta correctamente
+- Hay un delay en la infuencia que tiene un plataforma en el movimiento del jugador
+- Estos dos errores pueden provocar que el jugador se caiga de la plataforma
 
 
 
