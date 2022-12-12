@@ -123,7 +123,7 @@ class Form():
         si el archivo pasado como parametro no existe informa el error
         '''
         try:
-            pygame.mixer.music.load(PATH_RECURSOS + "/auxiliar/{0}.wav".format(music))
+            pygame.mixer.music.load(PATH_RECURSOS + "/auxiliar/{0}.mp3".format(music))
             pygame.mixer.music.play(-1)
         except:
             print("ARCHIVO NO ENCONTRADO")
