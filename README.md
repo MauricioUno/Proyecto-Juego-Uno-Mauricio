@@ -17,6 +17,7 @@ El juego consiste en superar los obstaculos y a los enemigos para poder llegar a
 - Se requiere instalar [Anaconda](https://www.anaconda.com)
 - Se requiere instalar [Visual Studio Code](https://code.visualstudio.com)
 - Una vez completado los pasos anteriores se debe instalar [Pygame](https://www.pygame.org/docs/)
+- Se debe ajustar las constantes PATH_RECURSOS Y PATH_JSON con la direccion de acceso que corresponda a su computadora
 <h3 align="left">Video Guia:</h3><p align="center"> <a href="https://www.youtube.com/watch?v=SRP-dqby6rA" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051968836586451024/image.png" alt="guide" width="300" height="200"/> </a>
 
 
@@ -53,7 +54,6 @@ Los metodos de **Widget** actualizan la informacion que contienen y los blitea e
 <h3 align="left">Errores:</h3>
 
 - El cambiar el valor de FPS puede afectar de manera negativa al juego
-- Las constantes PATH_RECURSOS Y PATH_JSON deben ajustarse manualmente segun el lugar donde se tenga guardado los archivos
 
 
 
