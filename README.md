@@ -57,6 +57,7 @@ Los metodos de **Widget** actualizan la informacion que contienen y los blitea e
 - La posicion del jugador al estar sobre una plataforma no se ajusta correctamente
 - Hay un delay en la infuencia que tiene un plataforma en el movimiento del jugador
 - Estos dos errores pueden provocar que el jugador se caiga de la plataforma
+- El cambiar la gravedad puede provocar que el jugador no detecte las plataformas
 
 
 
