@@ -10,7 +10,7 @@ class RandomGhost(ObjetoAnimado):
     def __init__(self, animacion, inversion, screen):
         self.acumulador = 0
         self.move_x = randint(5,9)
-        self.move_y = randint(50,100)
+        self.move_y = 0
 
         if inversion:
             self.move_x *= -1
@@ -25,7 +25,7 @@ class RandomGhost(ObjetoAnimado):
         self.activo = True
         self.timer = 0
         self.min_x = -300
-        self.max_x = 1800
+        self.max_x = ANCHO_VENTANA + 300
 
 
     def actualizar_posicion(self):
@@ -33,7 +33,6 @@ class RandomGhost(ObjetoAnimado):
         self.acumulador += self.move_x
         self.new_y = int(math.sin(self.acumulador/50)*100 + self.move_y)
         self.move_y = self.new_y - self.aux_y
-
         self.rect.move_ip(self.move_x, self.move_y)
 
 

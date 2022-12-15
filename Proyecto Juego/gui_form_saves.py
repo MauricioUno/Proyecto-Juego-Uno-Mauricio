@@ -4,6 +4,7 @@ from aux_constantes import *
 from manager_data import obtener_name_save
 from gui_form_select_level import FormMenuNiveles
 from gui_form_name import FormName
+import re
 
 class FormSaves(Form):
     '''
@@ -17,12 +18,29 @@ class FormSaves(Form):
         '''
         super().__init__(name, master_surface, x, y, w, h, color_background, imagen_background, color_border, active)
 
-        self.boton1 = Button(master=self,x=375,y=60,w=750,h=180,on_click=self.cargar_datos,on_click_param="Save_1", text= "Partida A", image_background= PATH_RECURSOS + r"\gui\TablaH.png", font_size= 70)
-        self.boton2 = Button(master=self,x=375,y=260,w=750,h=180,on_click=self.cargar_datos,on_click_param="Save_2", text= "Partida B", image_background= PATH_RECURSOS + r"\gui\TablaH.png", font_size= 70)
-        self.boton3 = Button(master=self,x=375,y=460,w=750,h=180,on_click=self.cargar_datos,on_click_param="Save_3", text= "Partida C", image_background= PATH_RECURSOS + r"\gui\TablaH.png", font_size= 70)
+        self.boton1 = Button(master=self,x=375,y=60,w=750,h=180,on_click=self.cargar_datos,on_click_param="Save_1", text= self.texto_boton("Save_1"), image_background= PATH_RECURSOS + r"\gui\TablaH.png", font_size= 70)
+        self.boton2 = Button(master=self,x=375,y=260,w=750,h=180,on_click=self.cargar_datos,on_click_param="Save_2", text= self.texto_boton("Save_2"), image_background= PATH_RECURSOS + r"\gui\TablaH.png", font_size= 70)
+        self.boton3 = Button(master=self,x=375,y=460,w=750,h=180,on_click=self.cargar_datos,on_click_param="Save_3", text= self.texto_boton("Save_3"), image_background= PATH_RECURSOS + r"\gui\TablaH.png", font_size= 70)
         self.back = Button(master=self,x=20, y=670, w=120,h =50,on_click=self.retroceder, text="atras", font_size= 50) 
         self.lista_widget = [self.boton1, self.boton2, self.boton3, self.back]
 
+    def actualizar_textos(self):
+        self.boton1.text = self.texto_boton("Save_1")
+        self.boton2.text = self.texto_boton("Save_2")
+        self.boton3.text = self.texto_boton("Save_3")
+
+
+    def texto_boton(self, save_file):
+        name_player = obtener_name_save(save_file)
+        if name_player == None:
+            text = "New Game"
+        else:
+            if re.search("s$", name_player, re.IGNORECASE):
+                text = "{0}' game".format(name_player)
+            else:
+                text = "{0}'s game".format(name_player)
+        
+        return text
 
 
     def cargar_datos(self, save_file):

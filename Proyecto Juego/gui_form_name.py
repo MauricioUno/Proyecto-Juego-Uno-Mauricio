@@ -46,4 +46,6 @@ class FormName(Form):
 
         crear_partida(self.save_file, self.input.text, ULTIMO_NIVEL)
         self.forms_dict.pop("name")
+        self.forms_dict["saves"].actualizar_textos()
         self.forms_dict["saves"].iniciar_save_file(self.save_file)
+        
