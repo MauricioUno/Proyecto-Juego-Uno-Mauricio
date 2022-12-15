@@ -247,5 +247,3 @@ def delete_save(save):
 
 
 
-
-
