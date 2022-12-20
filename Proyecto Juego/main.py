@@ -21,6 +21,7 @@ main_menu.crear_efectos_de_sonido(importar_lista(PATH_JSON.format("sonidos"), "s
 while True:
     
     delta_ms = clock.tick(FPS)
+    print(delta_ms)
     lista_eventos = pygame.event.get()
     teclas_presionadas = pygame.key.get_pressed()
     for event in lista_eventos:

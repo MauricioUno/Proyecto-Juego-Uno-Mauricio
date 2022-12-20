@@ -46,6 +46,8 @@ class FormNivel(Form):
         self.lista_widget = [self.health_bar, self.orb, self.ammo, self.score, self.orb, self.ammo, self.time]
     
         self.cargar_datos_jugador(save_file, nivel)
+        self.timer_surface = 0
+        self.timer_widget = 0
         
 
 
@@ -101,8 +103,12 @@ class FormNivel(Form):
         '''
         Se encarga de mostrar en pantalla a todos los elementos que conforman el formulario.
         '''
-        self.master_surface.blit(self.surface, self.slave_rect)
-        self.render()
+        self.timer_surface += delta_ms
+        if self.timer_surface > 30:
+            self.timer_surface = 0
+            self.master_surface.blit(self.surface, self.slave_rect)
+            self.render()
+
         self.plataformas.actualizar(delta_ms)
         self.trampas.actualizar(delta_ms, [self.jugador])
         self.items.actualizar(delta_ms, [self.jugador])
@@ -110,8 +116,11 @@ class FormNivel(Form):
         self.jugador.actualizar(self.plataformas.lista, self.enemigos.lista, delta_ms, lista_eventos, teclas_presionadas)
         self.portal.actualizar([self.jugador], delta_ms)
 
-        for aux_boton in self.lista_widget:
-            aux_boton.draw()
+        self.timer_widget += delta_ms
+        if self.timer_widget > 30:
+            self.timer_widget = 0
+            for aux_boton in self.lista_widget:
+                aux_boton.draw()
             
             
 

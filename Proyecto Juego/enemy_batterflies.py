@@ -12,7 +12,7 @@ class Batterfly(RandomGhost):
         self.rect_hitbox = pygame.Rect(self.rect.x + 20, self.rect.y + 10 , 65, 60)
         self.vida = 5
         self.damage = 10
-        self.puntos = 10    
+        self.puntos = 50    
         self.timer_respawn = 0
     
 

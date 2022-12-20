@@ -1,5 +1,6 @@
 <h1 align="left">Glitch (DEMO)</h1>
 
+
 Version en desarrollo de un videojuego 2D con plataformas basado en [GLITCH THE GAME](http://www.glitchthegame.com). Consta de varios menus a traves de los cuales el usuario puede navegar, la posibilidad de guardar partida y de configurar el volumen del juego.
 El juego consiste en superar los obstaculos y a los enemigos para poder llegar a un portal y avanzar al siguiente nivel, cuando se terminen todos los niveles, el score total del jugador se guardara en el ranking.
 
