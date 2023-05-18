@@ -23,32 +23,26 @@ El juego consiste en superar los obstaculos y a los enemigos para poder llegar a
 
 
 
-<h2 align="left">Version Alfa:</h2>
-<h3 align="left">Caracteristicas:</h3>
+<h4 align="left">Caracteristicas:</h4>
 
 - El funcionamiento del juego se basa en objetos **Form** y **Widget**, que permiten la interaccion entre usuario y videojuego
 - Para guardar y acceder a la informacion de la partida correspondiente se utiliza la biblioteca [SQLITE3](https://docs.python.org/es/3/library/sqlite3.html?highlight=sqlite3#module-sqlite3).
 - La informacion de cada nivel se almacena en un JSON, que es leido por **FormNivel** para construirlo
 
-
 <h4 align="left">Formularios</h4>
 
 Un formulario es una superficie que sera colocada en la pantalla junto con los elementos que la conforman. La clase **Form** es la clase padre de todos los formularios, cada uno conformado por una lista de widgets distinta y metodos que se adaptan a lo que se quiere hacer en ese formulario.
-
-Ademas de las funciones para actualizarse y colocarse en pantalla, la clase **Form** tiene metodos que permiten activar musica, efectos de sonido y permite la navegabilidad entre los distintos formularios. Para mas informacion ver ***gui_form.py***
 
 <h4 align="left">Widgets</h4>
 
 La clase **Widget** es la clase padre de todos los elementos que permiten la interaccion del usuario con el menu, desde imagenes hasta cajas de texto, todo widget es dependiente de los formularios, ya que la superficie en la que se colocaran es la de su **formulario maestro**.
 
-Los metodos de **Widget** actualizan la informacion que contienen y los blitea en la superficie de su formulario maestro, los objetos que heredan la clase **Widget**, tendran mas atributos y metodos de actualizacion mas complejos. Para mas informacion ver **gui_widget.py**.
 
 <h3 align="left">Cambios Planeados:</h3>
 
 - Optimizacion de la estructura de informacion del nivel en el archivo JSON
 - Optimizacion de la construccion del nivel
 - Optimizacion del manejo de las animaciones de los objetos y su hitbox
-- Nuevos enemigos, para ello se debe optimizar las clases de enemigo
 - Crear un manager general de proyectiles, ya que las balas desaparecen cuando muere quien las disparo
 - Terminar la documentacion de los elementos que conforman los niveles
 
@@ -56,9 +50,8 @@ Los metodos de **Widget** actualizan la informacion que contienen y los blitea e
 
 - El cambiar el valor de FPS puede afectar de manera negativa al juego
 - La posicion del jugador al estar sobre una plataforma no se ajusta correctamente
-- Hay un delay en la infuencia que tiene un plataforma en el movimiento del jugador
-- Estos dos errores pueden provocar que el jugador se caiga de la plataforma
-- El cambiar la gravedad puede provocar que el jugador no detecte las plataformas
+- Hay un delay en la infuencia de una plataforma sobre el movimiento del jugador
+- El cambiar la velocidad de caida puede provocar que el jugador no detecte las plataformas
 
 
 
