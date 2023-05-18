@@ -4,12 +4,9 @@
 Version en desarrollo de un videojuego 2D con plataformas basado en [GLITCH THE GAME](http://www.glitchthegame.com). Consta de varios menus a traves de los cuales el usuario puede navegar, la posibilidad de guardar partida y de configurar el volumen del juego.
 El juego consiste en superar los obstaculos y a los enemigos para poder llegar a un portal y avanzar al siguiente nivel, cuando se terminen todos los niveles, el score total del jugador se guardara en el ranking.
 
-<h3 align="left">Imagenes:</h3>
-<p align="center"> <a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553422563872919/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553422563872919/image.png" alt="python" width="300" height="200"/> </a><a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553837762228264/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553837762228264/image.png" alt="python" width="300" height="200"/> </a>
-<p align="center"> <a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051553944473698445/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051553944473698445/image.png" alt="python" width="300" height="200"/> </a><a href="https://cdn.discordapp.com/attachments/1036152912600121356/1051554099969142824/image.png" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051554099969142824/image.png" alt="python" width="300" height="200"/> </a>
 
 <h3 align="left">Video de la demo:</h3>
-<p align="center"> <a href="https://www.youtube.com/watch?v=kE6Hpu-GOVY" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051167099122368542/main_menu.png" alt="python" width="300" height="200"/> </a>
+<p align="center"> <a href="https://www.youtube.com/watch?v=kE6Hpu-GOVY" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1058503354034159686/1108759792715051058/glitch_demo.png" alt="python" width="300" height="200"/> </a>
 
 <h2 align="left">Lenguajes y herramientas utilizadas:</h2><p align="left"> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a> <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/visual-studio-code.svg?raw=true" alt="VSCode Logo" width="40" height="40"/> </a> </p>
 
@@ -23,7 +20,7 @@ El juego consiste en superar los obstaculos y a los enemigos para poder llegar a
 
 
 
-<h4 align="left">Caracteristicas:</h4>
+<h3 align="left">Caracteristicas:</h3>
 
 - El funcionamiento del juego se basa en objetos **Form** y **Widget**, que permiten la interaccion entre usuario y videojuego
 - Para guardar y acceder a la informacion de la partida correspondiente se utiliza la biblioteca [SQLITE3](https://docs.python.org/es/3/library/sqlite3.html?highlight=sqlite3#module-sqlite3).
