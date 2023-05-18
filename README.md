@@ -6,7 +6,7 @@ El juego consiste en superar los obstaculos y a los enemigos para poder llegar a
 
 
 <h3 align="left">Video de la demo:</h3>
-<p align="center"> <a href="https://www.youtube.com/watch?v=kE6Hpu-GOVY" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1058503354034159686/1108759792715051058/glitch_demo.png" alt="python" width="300" height="250"/> </a>
+<p align="center"> <a href="https://www.youtube.com/watch?v=kE6Hpu-GOVY" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1058503354034159686/1108759792715051058/glitch_demo.png" alt="python" width="350" height="250"/> </a>
 
 <h2 align="left">Lenguajes y herramientas utilizadas:</h2><p align="left"> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a> <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/visual-studio-code.svg?raw=true" alt="VSCode Logo" width="40" height="40"/> </a> </p>
 
