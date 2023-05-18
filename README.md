@@ -1,14 +1,13 @@
 <h1 align="left">Glitch (DEMO)</h1>
 
-
 Version en desarrollo de un videojuego 2D con plataformas basado en [GLITCH THE GAME](http://www.glitchthegame.com). Consta de varios menus a traves de los cuales el usuario puede navegar, la posibilidad de guardar partida y de configurar el volumen del juego.
 El juego consiste en superar los obstaculos y a los enemigos para poder llegar a un portal y avanzar al siguiente nivel, cuando se terminen todos los niveles, el score total del jugador se guardara en el ranking.
-
 
 <h3 align="left">Video de la demo:</h3>
 <p align="center"> <a href="https://www.youtube.com/watch?v=kE6Hpu-GOVY" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1058503354034159686/1108759792715051058/glitch_demo.png" alt="python" width="350" height="250"/> </a>
 
 <h2 align="left">Lenguajes y herramientas utilizadas:</h2><p align="left"> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a> <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/visual-studio-code.svg?raw=true" alt="VSCode Logo" width="40" height="40"/> </a> </p>
+
 
 <h3 align="left">Preparacion del entorno:</h3>
 
@@ -16,8 +15,7 @@ El juego consiste en superar los obstaculos y a los enemigos para poder llegar a
 - Se requiere instalar [Visual Studio Code](https://code.visualstudio.com)
 - Una vez completado los pasos anteriores se debe instalar [Pygame](https://www.pygame.org/docs/)
 - Se debe ajustar las constantes PATH_RECURSOS Y PATH_JSON (en aux_constantes.py) con la direccion de acceso que corresponda a su computadora
-<h3 align="left">Video Guia:</h3><p align="center"> <a href="https://www.youtube.com/watch?v=SRP-dqby6rA" target="_blank" rel="noreferrer"> <img src="https://cdn.discordapp.com/attachments/1036152912600121356/1051968836586451024/image.png" alt="guide" width="300" height="200"/> </a>
-
+- [Video Guía](https://www.youtube.com/watch?v=SRP-dqby6rA)
 
 
 <h3 align="left">Caracteristicas:</h3>
